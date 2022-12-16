@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
-
+import Welcome from "./pages/welcome";
 
 const App = () => {
 
@@ -9,7 +9,7 @@ const App = () => {
     <Router>
       {/* <NavBar /> */}
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<Welcome />} />
       </Routes>
     </Router>
   )
