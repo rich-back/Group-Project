@@ -1,0 +1,19 @@
+:root {
+    --periodic-table-cell-size: 4rem;
+}
+
+.PeriodicTable {
+    display: grid;
+    grid-auto-rows: var(--periodic-table-cell-size);
+    grid-auto-columns: var(--periodic-table-cell-size);
+    gap: calc(var(--periodic-table-cell-size) / 8);
+}
+
+.PeriodicTable > .ElementInTable {
+    border: 1px solid chartreuse;
+    aspect-ratio: 1;
+    overflow: hidden;
+
+    grid-row: var(--periodic-table-row) / span 1;
+    grid-column: var(--periodic-table-column) / span 1;
+}
