@@ -1,7 +1,29 @@
+/* this might want to move to another CSS file */
+/* this block defines the colours/sizes of stuff in the periodic table */
 :root {
     --periodic-table-cell-size: 3rem;
+    --element-in-table-bg-light: bisque;
+    --element-in-table-bg-hover: yellow;
+    --element-in-table-bg-dark: brown;
+    --element-in-table-font-size: 1.5rem;
 }
 
+/* change colours of some elements */
+.ElementInTable.type-metallic {
+    --element-in-table-bg-light: lightblue;
+    --element-in-table-bg-hover: aqua;
+    --element-in-table-bg-dark: darkblue;
+}
+
+.ElementInTable.groupBlock-lanthanoid,
+.ElementInTable.groupBlock-actinoid {
+    --element-in-table-bg-light: lightgreen;
+    --element-in-table-bg-hover: chartreuse;
+    --element-in-table-bg-dark: green;
+}
+
+/* This makes the layout work */
+/* The styled-component in ElementInTable just sets up variables and this picks up those positions */
 .PeriodicTable {
     display: grid;
     grid-auto-rows: var(--periodic-table-cell-size);
@@ -10,10 +32,40 @@
 }
 
 .PeriodicTable > .ElementInTable {
-    border: 1px solid chartreuse;
+    border: 1px solid grey;
     aspect-ratio: 1;
     overflow: hidden;
 
     grid-row: var(--periodic-table-row) / span 1;
     grid-column: var(--periodic-table-column) / span 1;
+
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 67% 33%;
+    align-items: center;
+    justify-items: center;
+}
+
+.ElementInTable {
+    background-color: var(--element-in-table-bg-light);
+    color: black;
+}
+
+.ElementInTable:hover {
+    background-color: var(--element-in-table-bg-hover);
+}
+
+.ElementInTable > .atomic-number {
+    grid-row-start: 2;
+    background-color: var(--element-in-table-bg-dark);
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+.ElementInTable > .symbol {
+    grid-row-start: 1;
+    font-size: var(--element-in-table-font-size);
+    width: 100%;
+    text-align: center;
 }
