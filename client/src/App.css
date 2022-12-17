@@ -5,6 +5,11 @@
   overflow-y: scroll;
 }
 
+.element > h4,
+.element > ul {
+  margin: 0;
+}
+
 #nav{
   display: flex;
   margin: 3rem;
