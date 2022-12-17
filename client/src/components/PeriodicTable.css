@@ -74,3 +74,19 @@
     grid-row: 1 / span 3;
     grid-column: 3 / span 10;
 }
+
+.PeriodicTable > .lanthanides-label {
+    grid-row: 8 / span 1;
+    grid-column: 1 / span 2;
+}
+
+.PeriodicTable > .actinides-label {
+    grid-row: 9 / span 1;
+    grid-column: 1 / span 2;
+}
+
+.PeriodicTable > .lanthanides-label,
+.PeriodicTable > .actinides-label {
+    align-self: center;
+    justify-self: end;
+}

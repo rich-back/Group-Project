@@ -14,8 +14,14 @@ const PeriodicTable = ({elements}) => {
 
     const hoverItem = <Element element={hoverElement} />
 
+    const labelItems = [
+        <div className="lanthanides-label" key="lanthanides-label">Lanthanides</div>,
+        <div className="actinides-label" key="actinides-label">Actinides</div>
+    ];
+
     return (
         <div className="PeriodicTable">
+            {labelItems}
             {hoverItem}
             {elementsList}
         </div>
