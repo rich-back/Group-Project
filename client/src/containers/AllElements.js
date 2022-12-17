@@ -8,6 +8,9 @@ const AllElements = ({ allElements }) => {
     if (!allElements)
         return <h2>Loading</h2>;
 
+    if (allElements && !selectedElement && allElements[0])
+        setSelectedElement(allElements[0]);
+
     return <>
         { selectedElement && <Element element={selectedElement} /> }
         <PeriodicTable elements={allElements} setSelectedElement={setSelectedElement} />

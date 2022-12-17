@@ -13,7 +13,7 @@ const ElementInTable = ({element, setSelectedElement}) => {
         <PositionedElement
                 className="ElementInTable"
                 row={row} column={column}
-                onClick={(e)=>setSelectedElement(element)}
+                onMouseOver={(e)=>setSelectedElement(element)}
             >
             {element.atomicNumber}{" - "}
             {element.symbol}{" - "}

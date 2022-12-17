@@ -40,6 +40,9 @@
 .element {
   border: solid black;
   margin: 0.5rem;
+
+  height: 10rem;
+  overflow-y: scroll;
 }
 
 #nav{
