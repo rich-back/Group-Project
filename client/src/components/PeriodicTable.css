@@ -69,3 +69,8 @@
     width: 100%;
     text-align: center;
 }
+
+.PeriodicTable > .element {
+    grid-row: 1 / span 3;
+    grid-column: 3 / span 10;
+}

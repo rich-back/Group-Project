@@ -20,7 +20,7 @@ const debugLogClasses = (classes) => {
         }, 500);
 };
 
-const ElementInTable = ({element, setSelectedElement}) => {
+const ElementInTable = ({element, setHoverElement}) => {
     const {row, column} = elementPosition(element);
 
     let classes = [];
@@ -34,7 +34,7 @@ const ElementInTable = ({element, setSelectedElement}) => {
         <PositionedElement
                 className={`ElementInTable ${classes.join(" ")}`}
                 row={row} column={column}
-                onMouseOver={(e)=>setSelectedElement(element)}
+                onMouseOver={(e)=>setHoverElement(element)}
             >
             <span className="atomic-number">{element.atomicNumber}</span>
             <span className="symbol">{element.symbol}</span>
