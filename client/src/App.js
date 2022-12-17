@@ -4,8 +4,8 @@ import './App.css';
 import Welcome from "./pages/Welcome";
 import NavBar from "./components/NavBar";
 import PTable from "./pages/PTable";
-import Quiz from "./components/Quiz";
 import {getElements} from "./ElementsService"
+import Quiz from "./pages/Quiz";
 
 
 const App = () => {
