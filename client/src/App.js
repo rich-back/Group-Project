@@ -5,6 +5,7 @@ import Welcome from "./pages/Welcome";
 import NavBar from "./components/NavBar";
 import PTable from "./pages/PTable";
 import {getElements} from "./ElementsService"
+import SElemtentPage from "./pages/SElementPage";
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/periodictable" element ={<PTable allElements={allElements} />} />
+        <Route path="/periodictable/element/:id" element ={< SElemtentPage allElements={allElements}/>} />
       </Routes>
     </Router>
   )
