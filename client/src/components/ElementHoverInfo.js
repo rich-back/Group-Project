@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Element = ({ element }) => {
+const ElementHoverInfo = ({ element }) => {
     if (!element)
         return <div className="element element-blank">Hover over an element to see more information.<br/>Click an element to read about it.</div>;
 
@@ -19,4 +19,4 @@ const Element = ({ element }) => {
 }
 
 
-export default Element;
+export default ElementHoverInfo;

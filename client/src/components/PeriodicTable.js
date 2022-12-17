@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import ElementInTable from "./ElementInTable";
-import Element from "../components/Element";
+import ElementHoverInfo from "../components/ElementHoverInfo";
 
 import "./PeriodicTable.css";
 
@@ -12,7 +12,7 @@ const PeriodicTable = ({elements}) => {
         return <ElementInTable element={element} key={element._id} setHoverElement={setHoverElement} />
     });
 
-    const hoverItem = <Element element={hoverElement} />
+    const hoverItem = <ElementHoverInfo element={hoverElement} />
 
     const labelItems = [
         <div className="lanthanides-label" key="lanthanides-label">Lanthanides</div>,
