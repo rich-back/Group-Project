@@ -20,7 +20,10 @@ const PeriodicTable = ({elements}) => {
     ];
 
     return (
-        <div className="PeriodicTable">
+        <div
+                className="PeriodicTable"
+                onMouseLeave={(e)=>setHoverElement(null)}
+            >
             {labelItems}
             {hoverItem}
             {elementsList}

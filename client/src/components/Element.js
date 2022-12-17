@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Element = ({ element }) => {
     if (!element)
-        return <div className="element">---</div>;
+        return <div className="element element-blank">Hover over an element to see more information.<br/>Click an element to read about it.</div>;
 
     return (
         <div className="element">

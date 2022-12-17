@@ -29,6 +29,12 @@
     grid-auto-rows: var(--periodic-table-cell-size);
     grid-auto-columns: var(--periodic-table-cell-size);
     gap: calc(var(--periodic-table-cell-size) / 8);
+    padding: calc(var(--periodic-table-cell-size) / 8);
+
+    background: white;
+    border: 1px solid black;
+    width: fit-content;
+    height: fit-content;
 }
 
 .PeriodicTable > .ElementInTable {
