@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import { elementPosition } from '../utilities/element_position';
 
@@ -36,8 +37,8 @@ const ElementInTable = ({element, setHoverElement}) => {
                 row={row} column={column}
                 onMouseOver={(e)=>setHoverElement(element)}
             >
-            <span className="atomic-number">{element.atomicNumber}</span>
-            <span className="symbol">{element.symbol}</span>
+            <Link to={`/periodictable/element/${element._id}`} className="atomic-number">{element.atomicNumber}</Link>
+            <Link to={`/periodictable/element/${element._id}`} className="symbol">{element.symbol}</Link>
         </PositionedElement>
     );
 };
