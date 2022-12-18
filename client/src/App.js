@@ -19,13 +19,17 @@ const App = () => {
       .then(elements => setAllElements(elements));
   }, []);
 
+  const elementNames = allElements.map((element)=>{
+    return element.name
+  })
+
   return (
     <Router>
       <NavBar />
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/periodictable" element={<PTable allElements={allElements} />} />
-        <Route path="/quiz" element={<Quiz />} />
+        <Route path="/quiz" element={<Quiz elementNames={elementNames} />} />
         <Route path="/periodictable/element/:id" element={< SElemtentPage allElements={allElements} />} />
       </Routes>
     </Router>
