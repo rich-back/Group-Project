@@ -2,7 +2,7 @@
 import React from "react";
 import SElementContainer from "../containers/SElementContainer";
 
-const SElemtentPage = ({allElements}) => {
+const SElementPage = ({allElements}) => {
 
 
     
@@ -15,4 +15,4 @@ const SElemtentPage = ({allElements}) => {
     );
 };
 
-export default SElemtentPage;
+export default SElementPage;
