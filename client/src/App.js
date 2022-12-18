@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import './App.css';
 import Welcome from "./pages/Welcome";
 import NavBar from "./components/NavBar";
 import PTable from "./pages/PTable";
-import {getElements} from "./ElementsService"
+import { getElements } from "./ElementsService"
 import Quiz from "./pages/Quiz";
 import SElemtentPage from "./pages/SElementPage";
 
@@ -24,10 +24,9 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route path="/" element={<Welcome />} />
-        <Route path="/periodictable" element ={<PTable allElements={allElements} />} />
-        <Route path="/quiz" element ={<Quiz />} />
-        <Route path="/periodictable/element/:id" element ={< SElemtentPage allElements={allElements}/>} />
-
+        <Route path="/periodictable" element={<PTable allElements={allElements} />} />
+        <Route path="/quiz" element={<Quiz />} />
+        <Route path="/periodictable/element/:id" element={< SElemtentPage allElements={allElements} />} />
       </Routes>
     </Router>
   )
