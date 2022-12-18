@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { elementPosition } from '../utilities/element_position';
 
 const PositionedElement = styled.div`
     --periodic-table-row: ${(props) => props.row};
@@ -6,8 +7,7 @@ const PositionedElement = styled.div`
 `;
 
 const ElementInTable = ({element, setSelectedElement}) => {
-    const row = 1;
-    const column = element.atomicNumber;
+    const {row, column} = elementPosition(element);
 
     return (
         <PositionedElement
