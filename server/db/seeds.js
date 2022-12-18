@@ -3,7 +3,6 @@ db.dropDatabase();
 
 db.quiz.insertMany(
     [
-    
         {"correctAnswer": "Dmitri Mendeleev",
         "incorrectAnswers": ["Niels Bohr","J J Thomson"],
         "question": "Which scientist developed an early periodic table?"},
