@@ -3,11 +3,11 @@ import Element from "../components/Element";
 
 const AllElements = ({ allElements }) => {
     if (!allElements) return <h2>Loading</h2>
-    const elementsList = allElements.map((element) => {
+    const elementsList = allElements.map((element, index) => {
         return (
             
             <ul>
-                <Element element={element} key={element._id} />
+                <Element element={element} key={index} />
             </ul>
         )
     });

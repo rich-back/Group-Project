@@ -1,9 +1,9 @@
 import React from "react";
 import QuizComponent from "../components/QuizComponent";
 
-const QuizContainer = (elementNames) => (
+const QuizContainer = (allElements) => (
     <>
-        <QuizComponent elementNames={elementNames} />
+        <QuizComponent allElements={allElements} />
     </>
 );
 
