@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react"
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import Welcome from "./pages/Welcome";
 import NavBar from "./components/NavBar";
 import PTable from "./pages/PTable";
-import { getElements } from "./ElementsService"
+import { getElements } from "./services/ElementsService";
 import Quiz from "./pages/Quiz";
 import SElemtentPage from "./pages/SElementPage";
-
-
 
 const App = () => {
 
@@ -18,10 +16,6 @@ const App = () => {
     getElements()
       .then(elements => setAllElements(elements));
   }, []);
-
-  // const elementNames = allElements.map((element)=>{
-  //   return element.name
-  // })
 
   return (
     <Router>
