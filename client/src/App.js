@@ -7,6 +7,8 @@ import PTable from "./pages/PTable";
 import { getElements } from "./services/ElementsService";
 import Quiz from "./pages/Quiz";
 import SElementPage from "./pages/SElementPage";
+import HeaderImage from "./components/HeaderImage";
+import HeaderPic from "./static/ElementablesLogoHeader.png"
 
 const App = () => {
 
@@ -19,7 +21,10 @@ const App = () => {
 
   return (
     <Router>
+      <header>
+      <HeaderImage HeaderPic={HeaderPic}/>
       <NavBar />
+      </header>
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/periodictable" element ={<PTable allElements={allElements} />} />
