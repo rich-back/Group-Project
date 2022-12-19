@@ -9,6 +9,8 @@ import Quiz from "./pages/Quiz";
 import SElementPage from "./pages/SElementPage";
 import HeaderImage from "./components/HeaderImage";
 import HeaderPic from "./static/ElementablesLogoHeader.png"
+import QuizComponent from "./components/QuizComponent";
+import Trivia from "./components/Trivia";
 
 const App = () => {
 
@@ -29,6 +31,8 @@ const App = () => {
         <Route path="/" element={<Welcome />} />
         <Route path="/periodictable" element ={<PTable allElements={allElements} />} />
         <Route path="/quiz" element ={<Quiz allElements={allElements} />} />
+        <Route path="/quiz/state" element ={<QuizComponent allElements={allElements} />} />
+        <Route path="/quiz/trivia" element ={<Trivia allElements={allElements} />} />
         {/* <Route path="/periodictable/element/:id" element ={< SElemtentPage allElements={allElements}/>} /> */}
         <Route path="/element/:name" element ={< SElementPage allElements={allElements}/>} />
       </Routes>
