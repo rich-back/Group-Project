@@ -1,18 +1,18 @@
 
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import {getElement} from "../ElementsService"
+import {getElementByName} from "../ElementsService"
 import SingleElement from "../components/SingleElement";
 
 const SElementContainer = () => {
 
-    const {id} = useParams();
+    const {name} = useParams();
     //need catch
 
     const [element, setElement] = useState([]);
     
     useEffect(() => {
-        getElement(id)
+       getElementByName(name)
       .then(element => setElement(element));
     }, []);
     

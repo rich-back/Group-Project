@@ -4,7 +4,7 @@ const Element = ({ element }) => {
     return (
         < div className="element" >
             
-            <Link to={`/periodictable/element/${element._id}`}><h4>{element.atomicNumber}.{element.name}</h4></Link>
+            <Link to={`/periodictable/${element.name}`}><h4>{element.atomicNumber}.{element.name}</h4></Link>
             <p><b> Standard State: </b>{element.standardState}</p>
             
         </div>
