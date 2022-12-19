@@ -1,18 +1,15 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import "./NavBar.css";
 
 const NavBar = () => {
-  let activeStyle = {
-    color: "green",
-  };
-
   return (
     <>
       <ul id="nav">
         <li>
           <NavLink
             to="/"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            className={({ isActive }) => (isActive ? "active" : undefined)}
           >
             Welcome Page
           </NavLink>
@@ -20,7 +17,7 @@ const NavBar = () => {
         <li>
           <NavLink
             to="/periodictable"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            className={({ isActive }) => (isActive ? "active" : undefined)}
           >
             Periodic Table
           </NavLink>
@@ -28,7 +25,7 @@ const NavBar = () => {
         <li>
           <NavLink
             to="/quiz"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            className={({ isActive }) => (isActive ? "active" : undefined)}
           >
             Quiz
           </NavLink>
@@ -36,7 +33,7 @@ const NavBar = () => {
         <li>
           <NavLink
             to="/highscores"
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            className={({ isActive }) => (isActive ? "active" : undefined)}
           >
             Highscores
           </NavLink>

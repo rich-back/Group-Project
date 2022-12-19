@@ -3,7 +3,7 @@ import React from "react";
 
 const HeaderImage = ({HeaderPic}) => {
     return (
-        <img src={HeaderPic} />
+        <a href="/"><img src={HeaderPic} /></a>
     )
 }
 export default HeaderImage;
