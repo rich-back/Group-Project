@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
 
-
 const QuizComponent = ({ allElements }) => {
-  const [randomItem, updateRandomItem] = useState("Let's Begin")
+  const [randomItem, updateRandomItem] = useState(null);
   const [score, updateScore] = useState(0)
   const [points, setPoints] = useState(1);
   const [answer, updateAnswer] = useState(null)
 
   function startQuiz() {
-    const randomindex = Math.floor(Math.random() * allElements.length);
-    const newRandomItem = allElements[randomindex]
-    updateRandomItem(newRandomItem)
+    nextQuestion();
   }
 
   function nextQuestion() {
@@ -20,7 +17,6 @@ const QuizComponent = ({ allElements }) => {
     updateAnswer(null)
   }
 
-
   const addPoints = (() => {
     const newScore = score + points
     setPoints(points * 2);
@@ -28,8 +24,8 @@ const QuizComponent = ({ allElements }) => {
   })
 
   const handleAnswer = ((value) => {
-
-    if (value.target.value === randomItem.standardState) {
+    const correctAnswer = randomItem.standardState || 'unknown';
+    if (value.target.value === correctAnswer) {
       addPoints();
       updateAnswer(`correct`)
     }
@@ -55,13 +51,14 @@ const QuizComponent = ({ allElements }) => {
   )
 
   const NextQuestion = () => (
-    <>
+    <div id="question">
       <h3>{randomItem.name}</h3>
+      <p>For {points} {points === 1 ? 'point' : 'points'}</p>
       <button value={"solid"} onClick={handleAnswer}>Solid</button>
       <button value={"gas"} onClick={handleAnswer}>Gas</button>
       <button value={"liquid"} onClick={handleAnswer}>Liquid</button>
       <button value={"state unknown"} onClick={handleAnswer}>State Unknown</button>
-    </>
+    </div>
   )
 
   return (
@@ -69,7 +66,9 @@ const QuizComponent = ({ allElements }) => {
     <>
       <h2>The Element_Able Quiz!</h2>
       <button onClick={startQuiz}>Get Started!!!</button>
-      {answer ? (answer == "correct" ? <CorrectAnswer /> : <IncorrectAnswer />) : <NextQuestion />}
+      {answer ?
+        (answer === "correct" ? <CorrectAnswer /> : <IncorrectAnswer />) :
+        (randomItem ? <NextQuestion /> : null)}
       <h4>Your Score : {score}</h4>
     </>
   );
