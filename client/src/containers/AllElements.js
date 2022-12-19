@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import PeriodicTable from "../components/PeriodicTable";
 
 const AllElements = ({ allElements }) => {

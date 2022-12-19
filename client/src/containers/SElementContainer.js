@@ -14,7 +14,7 @@ const SElementContainer = () => {
     useEffect(() => {
        getElementByName(name)
       .then(element => setElement(element));
-    }, []);
+    }, [name]);
     
     // const getFilteredElement = function(allElements){
     //     const filteredElement = allElements.filter((element)=>{

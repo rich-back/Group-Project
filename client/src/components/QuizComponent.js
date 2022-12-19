@@ -19,7 +19,7 @@ const QuizComponent = ({ allElements }) => {
   })
 
   const handleAnswer = ((value)=>{
-    if (value.target.value == randomItem.standardState){
+    if (value.target.value === randomItem.standardState){
       addAPoint()
       returnRandomItem()
       updateAnswer(`CORRECT : The Answer Was ${randomItem.standardState}`)
