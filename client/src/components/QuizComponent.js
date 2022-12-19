@@ -7,8 +7,8 @@ const QuizComponent = ({ allElements }) => {
   const [answer, updateAnswer] = useState ("The Answer Was : ")
 
   function returnRandomItem() {
-    const randomindex = Math.floor(Math.random() * allElements.allElements.length);
-    const newRandomItem = allElements.allElements[randomindex]
+    const randomindex = Math.floor(Math.random() * allElements.length);
+    const newRandomItem = allElements[randomindex]
     updateRandomItem(newRandomItem)
     return randomItem 
   }

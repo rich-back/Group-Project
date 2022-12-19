@@ -1,7 +1,7 @@
 import React from "react";
 import QuizComponent from "../components/QuizComponent";
 
-const QuizContainer = (allElements) => (
+const QuizContainer = ({allElements}) => (
     <>
         <QuizComponent allElements={allElements} />
     </>
