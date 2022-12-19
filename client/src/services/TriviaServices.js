@@ -1,7 +1,7 @@
-const baseURL = 'http://localhost:9000/api/trivia/';
+const baseURL = 'http://localhost:9000/api/trivia';
 
 export const getRandomTrivia = () => {
     return fetch(`${baseURL}/random`)
-        .then(res => res.json())
+    .then(res => res.json())
 };
 
