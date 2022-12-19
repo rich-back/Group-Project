@@ -1,22 +1,49 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
+import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
-    return (
-        <ul id="nav">
-            <li>
-            <Link to="/">Welcome Page</Link>
-            </li>
-            <li>
-            <Link to="/periodictable">Periodic Table</Link>
-            </li>
-            <li>
-            <Link to="/quiz">Quiz</Link>
-            </li>
-            <li><Link to="/highscores">Highscores</Link></li>
-        </ul>
-    );
-}
+  let activeStyle = {
+    color: "green",
+  };
+
+  return (
+    <>
+      <ul id="nav">
+        <li>
+          <NavLink
+            to="/"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
+            Welcome Page
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/periodictable"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
+            Periodic Table
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/quiz"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
+            Quiz
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/highscores"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
+            Highscores
+          </NavLink>
+        </li>
+      </ul>
+    </>
+  );
+};
 
 export default NavBar;
