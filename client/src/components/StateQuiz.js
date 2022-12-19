@@ -1,60 +1,73 @@
-import React , {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 
 
 const QuizComponent = ({ allElements }) => {
-  const [randomItem, updateRandomItem] = useState ("Let's Begin")
-  const [score, updateScore]= useState (0)
-  const [answer, updateAnswer] = useState (null)
+  const [randomItem, updateRandomItem] = useState("Let's Begin")
+  const [score, updateScore] = useState(0)
+  const [answer, updateAnswer] = useState(null)
 
   function startQuiz() {
     const randomindex = Math.floor(Math.random() * allElements.length);
     const newRandomItem = allElements[randomindex]
     updateRandomItem(newRandomItem)
-    return randomItem 
   }
-  
+
   function nextQuestion() {
     const randomindex = Math.floor(Math.random() * allElements.length);
     const newRandomItem = allElements[randomindex]
     updateRandomItem(newRandomItem)
     updateAnswer(null)
-    return randomItem 
   }
 
 
-  const addAPoint = (()=>{
-    const newScore  = score + 1
-    updateScore (newScore)
+  const addAPoint = (() => {
+    const newScore = score + 1
+    updateScore(newScore)
   })
 
-  const handleAnswer = ((value)=>{
-    if (value.target.value === randomItem.standardState){
+  const handleAnswer = ((value) => {
+
+    if (value.target.value === randomItem.standardState) {
       addAPoint()
-      updateAnswer(`CORRECT : ${randomItem.name} is a ${randomItem.standardState} `)
+      updateAnswer(`correct`)
     }
-      else {
-        updateAnswer(`WRONG : ${randomItem.name} is a ${randomItem.standardState} `)
-      }
+    else {
+      updateAnswer(`wrong`)
+    }
+  })
 
-    })
-  return (
+  const CorrectAnswer = () => (
+    <div id="correct" >
+      <h3>That was correct!</h3>
+      <p>{`${randomItem.name} is a ${randomItem.standardState}`}</p>
+      <button onClick={nextQuestion}> Next Question </button>
+    </div>
+  )
+  const IncorrectAnswer = () => (
+    <div id="incorrect" >
+      <h3>That was wrong!</h3>
+      <p>{`${randomItem.name} is a ${randomItem.standardState}`}</p>
+      <button onClick={nextQuestion}> Next Question </button>
+    </div>
+  )
+
+  const NextQuestion = () => (
     <>
-      <h2>The Element_Able Quiz!</h2>
-      <button onClick={startQuiz}>Get Started!!!</button> 
       <h3>{randomItem.name}</h3>
-      <h4>Choose the element's Standard State</h4>
-
       <button value={"solid"} onClick={handleAnswer}>Solid</button>
       <button value={"gas"} onClick={handleAnswer}>Gas</button>
       <button value={"liquid"} onClick={handleAnswer}>Liquid</button>
       <button value={"state unknown"} onClick={handleAnswer}>State Unknown</button>
+    </>
+  )
 
-      <h4>Your Score : {score}</h4>     
-      <p>{answer}</p>
-      <button onClick={nextQuestion}> Next Question </button> 
+  return (
 
-
-
+    <>
+      <h2>The Element_Able Quiz!</h2>
+      <button onClick={startQuiz}>Get Started!!!</button>
+      {answer ? (answer == "correct" ? <CorrectAnswer /> : <IncorrectAnswer />) : <NextQuestion />}
+      <h4>Your Score : {score}</h4>
     </>
   );
 }
