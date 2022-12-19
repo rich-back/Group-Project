@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import {getElementByName} from "../ElementsService"
+import {getElementByName} from "../services/ElementsService"
 import SingleElement from "../components/SingleElement";
 
 const SElementContainer = () => {
