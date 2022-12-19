@@ -1,6 +1,5 @@
 /* main css style codes */
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Rubik&family=Rubik+Mono+One&display=swap');
 /* 
 body:
   font-family: 'Rubik', sans-serif;
@@ -42,4 +41,8 @@ element names:
 
 .SingleElement-picture {
   width: 12rem;
+}
+
+.highscores thead {
+  font-family: 'Rubik Mono One';
 }
