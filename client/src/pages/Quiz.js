@@ -5,6 +5,7 @@ const Quiz = ({allElements}) => (
     <>
     <QuizContainer allElements={allElements} />
     </>
+
 );
 
 export default Quiz;

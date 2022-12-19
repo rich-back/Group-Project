@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import "./NavBar.css";
 
 const NavBar = () => {
+
   let activeStyle = {
     color: "green",
   };
@@ -39,5 +40,6 @@ const NavBar = () => {
     </>
   );
 };
+
 
 export default NavBar;
