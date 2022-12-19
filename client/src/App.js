@@ -9,7 +9,7 @@ import Quiz from "./pages/Quiz";
 import SElementPage from "./pages/SElementPage";
 import HeaderImage from "./components/HeaderImage";
 import HeaderPic from "./static/elementablesLogobanner.svg"
-import QuizComponent from "./components/QuizComponent";
+import QuizComponent from "./components/StateQuiz";
 import Trivia from "./components/Trivia";
 
 const App = () => {
