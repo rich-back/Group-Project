@@ -12,8 +12,14 @@ element names:
   font-family: 'Rubik', sans-serif;
   font-weight: 900; */
 
-
-
+/* colours to use:
+#053B84 - dark blue - (core font colour)
+#B6320F - burnt orange - (core logo colour)
+#6F9D26 - green - (core logo colour)
+#367F8F - teal - (highlight colour)
+#D60F6D - pink (highlight colour)
+#EBAB0A  - yellow - (core logo colour)
+*/
 
 .element {
   border: solid black;
