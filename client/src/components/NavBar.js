@@ -1,22 +1,46 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
+import { Link, NavLink } from "react-router-dom";
+import "./NavBar.css";
 
 const NavBar = () => {
-    return (
-        <ul id="nav">
-            <li>
-            <Link to="/">Welcome Page</Link>
-            </li>
-            <li>
-            <Link to="/periodictable">Periodic Table</Link>
-            </li>
-            <li>
-            <Link to="/quiz">Quiz</Link>
-            </li>
-            <li><Link to="/highscores">Highscores</Link></li>
-        </ul>
-    );
-}
+  return (
+    <>
+      <ul id="nav">
+        <li>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "active" : undefined)}
+          >
+            Welcome Page
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/periodictable"
+            className={({ isActive }) => (isActive ? "active" : undefined)}
+          >
+            Periodic Table
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/quiz"
+            className={({ isActive }) => (isActive ? "active" : undefined)}
+          >
+            Quiz
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/highscores"
+            className={({ isActive }) => (isActive ? "active" : undefined)}
+          >
+            Highscores
+          </NavLink>
+        </li>
+      </ul>
+    </>
+  );
+};
 
 export default NavBar;
