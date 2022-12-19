@@ -28,6 +28,17 @@ const createRouter = function(collection) {
       res.json({ status: 500, error: err });
     });
   });
+  router.get('/name/:name', (req, res) => {
+    const name = req.params.name;
+    collection
+    .findOne({ name : name })
+    .then((doc) => res.json(doc))
+    .catch((err) => {
+      console.error(err);
+      res.status(500);
+      res.json({ status: 500, error: err });
+    });
+  });
 
   router.post('/', (req, res) => {
     const newData = req.body;

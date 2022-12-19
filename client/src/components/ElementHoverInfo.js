@@ -6,7 +6,7 @@ const ElementHoverInfo = ({ element }) => {
 
     return (
         <div className="element">
-            <Link to={`/periodictable/element/${element._id}`}><h4>{element.atomicNumber}. {element.name}</h4></Link>
+            <Link to={`/element/${element.name}`}><h4>{element.atomicNumber}. {element.name}</h4></Link>
             <ul className="element-properties">
                 <li><b>Standard State:</b><span>{element.standardState || "unknown"}</span></li>
                 <li><b>Atomic Mass:</b><span>{element.atomicMass || "unknown"}</span></li>

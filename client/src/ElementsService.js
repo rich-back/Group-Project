@@ -3,6 +3,14 @@ const baseURL = 'http://localhost:9000/api/elements/';
 export const getElements = () => {
     return fetch(baseURL)
         .then(res => res.json())
+};
+export const getElement = (id) => {
+    return fetch(baseURL + id)
+        .then(res => res.json())
+}
+export const getElementByName = (name) => {
+    return fetch(`${baseURL}/name/${name}`)
+        .then(res => res.json())
 }
 
 export const postElement = (payload) => {

@@ -37,8 +37,8 @@ const ElementInTable = ({element, setHoverElement}) => {
                 row={row} column={column}
                 onMouseOver={(e)=>setHoverElement(element)}
             >
-            <Link to={`/periodictable/element/${element._id}`} className="atomic-number">{element.atomicNumber}</Link>
-            <Link to={`/periodictable/element/${element._id}`} className="symbol">{element.symbol}</Link>
+            <Link to={`/element/${element.name}`} className="atomic-number">{element.atomicNumber}</Link>
+            <Link to={`/element/${element.name}`} className="symbol">{element.symbol}</Link>
         </PositionedElement>
     );
 };
