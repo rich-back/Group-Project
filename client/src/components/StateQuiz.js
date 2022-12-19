@@ -6,10 +6,18 @@ const QuizComponent = ({ allElements }) => {
   const [score, updateScore]= useState (0)
   const [answer, updateAnswer] = useState (null)
 
-  function returnRandomItem() {
+  function startQuiz() {
     const randomindex = Math.floor(Math.random() * allElements.length);
     const newRandomItem = allElements[randomindex]
     updateRandomItem(newRandomItem)
+    return randomItem 
+  }
+  
+  function nextQuestion() {
+    const randomindex = Math.floor(Math.random() * allElements.length);
+    const newRandomItem = allElements[randomindex]
+    updateRandomItem(newRandomItem)
+    updateAnswer(null)
     return randomItem 
   }
 
@@ -32,7 +40,7 @@ const QuizComponent = ({ allElements }) => {
   return (
     <>
       <h2>The Element_Able Quiz!</h2>
-      <button onClick={returnRandomItem}>Get Started!!!</button> 
+      <button onClick={startQuiz}>Get Started!!!</button> 
       <h3>{randomItem.name}</h3>
       <h4>Choose the element's Standard State</h4>
 
@@ -43,7 +51,7 @@ const QuizComponent = ({ allElements }) => {
 
       <h4>Your Score : {score}</h4>     
       <p>{answer}</p>
-      <button onClick={returnRandomItem}> Next Question </button> 
+      <button onClick={nextQuestion}> Next Question </button> 
 
 
 
