@@ -1,20 +1,12 @@
-import React from "react";
-import Element from "../components/Element";
+import React, { useState } from "react";
+import PeriodicTable from "../components/PeriodicTable";
 
 const AllElements = ({ allElements }) => {
-    if (!allElements) return <h2>Loading</h2>
-    const elementsList = allElements.map((element, index) => {
-        return (
-            
-            <ul>
-                <Element element={element} key={index} />
-            </ul>
-        )
-    });
-    return (
-        <>
-            {elementsList}
-        </>
-    );
+    if (!allElements)
+        return <h2>Loading</h2>;
+
+    return <>
+        <PeriodicTable elements={allElements} />
+    </>
 }
 export default AllElements;
