@@ -14,6 +14,7 @@ const NavBar = () => {
             <li>
             <Link to="/quiz">Quiz</Link>
             </li>
+            <li><Link to="/highscores">Highscores</Link></li>
         </ul>
     );
 }

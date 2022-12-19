@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import { getElements } from "./services/ElementsService";
 import './App.css';
+
 import Welcome from "./pages/Welcome";
 import NavBar from "./components/NavBar";
 import PTable from "./pages/PTable";
-import { getElements } from "./services/ElementsService";
 import Quiz from "./pages/Quiz";
 import SElementPage from "./pages/SElementPage";
 import HeaderImage from "./components/HeaderImage";
 import HeaderPic from "./static/ElementablesLogoHeader.png"
 import QuizComponent from "./components/QuizComponent";
 import Trivia from "./components/Trivia";
+import HighscoresPage from "./pages/HighscoresPage";
 
 const App = () => {
 
@@ -35,6 +38,7 @@ const App = () => {
         <Route path="/quiz/trivia" element ={<Trivia allElements={allElements} />} />
         {/* <Route path="/periodictable/element/:id" element ={< SElemtentPage allElements={allElements}/>} /> */}
         <Route path="/element/:name" element ={< SElementPage allElements={allElements}/>} />
+        <Route path="/highscores" element={<HighscoresPage/>} />
       </Routes>
     </Router>
   )
