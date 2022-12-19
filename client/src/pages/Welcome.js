@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
+
 const Welcome = () => (
   <div>
     <a href="/quiz"><button>Test Your Knowledge!</button></a>
