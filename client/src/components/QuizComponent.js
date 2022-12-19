@@ -13,13 +13,14 @@ const QuizComponent = ({ allElements }) => {
     return randomItem 
   }
 
+
   const addAPoint = (()=>{
     const newScore  = score + 1
     updateScore (newScore)
   })
 
   const handleAnswer = ((value)=>{
-    if (value.target.value == randomItem.standardState){
+    if (value.target.value === randomItem.standardState){
       addAPoint()
       returnRandomItem()
       updateAnswer(`CORRECT : The Answer Was ${randomItem.standardState}`)
@@ -30,7 +31,6 @@ const QuizComponent = ({ allElements }) => {
         updateAnswer(`WRONG : The Answer Was ${randomItem.standardState}`)
       }
     })
-
   return (
     <>
       <h2>The Element_Able Quiz!</h2>
