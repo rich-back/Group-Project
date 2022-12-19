@@ -1,7 +1,13 @@
 import React from "react";
-import QuizContainer from "../containers/QuizContainer";
+import { useState, useEffect } from 'react';
+import { getRandomTrivia } from "../services/TriviaServices";
 
-const Trivia = ({allElements}) => {
+
+const Trivia = () => {
+
+    const [randomTrivia, updateRandomTrivia] = useState ({})
+
+
 
     return(
 
