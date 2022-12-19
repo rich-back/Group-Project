@@ -11,6 +11,7 @@ const SingleElement = ({ elementToView }) => {
 
     const imgItem = !(wikidata && wikidata.image) ? null :
         <img
+            className="SingleElement-picture"
             alt={`${elementToView.name}`}
             src={wikidata.image}
         />;
