@@ -8,7 +8,7 @@ import { getElements } from "./services/ElementsService";
 import Quiz from "./pages/Quiz";
 import SElementPage from "./pages/SElementPage";
 import HeaderImage from "./components/HeaderImage";
-import HeaderPic from "./static/ElementablesLogoHeader.png"
+import HeaderPic from "./static/elementablesLogobanner.svg"
 import QuizComponent from "./components/QuizComponent";
 import Trivia from "./components/Trivia";
 
