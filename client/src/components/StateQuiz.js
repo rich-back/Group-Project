@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const HighscoreComponent = ({newHighscore}) => {
-  return <p>HighscoreComponent: {newHighscore}</p>;
-};
+import HighscoresComponent from "./HighscoresComponent";
 
 const QUIZ_LENGTH = 10;
 
@@ -94,7 +92,7 @@ const QuizComponent = ({ allElements }) => {
     <>
       <h2>The Element_Able Quiz!</h2>
       <button onClick={startQuiz}>Get Started!!!</button>
-      {displayHighscore ? <HighscoreComponent newHighscore={score} /> :
+      {displayHighscore ? <HighscoresComponent newHighscore={score} /> :
        answer ?
         (answer === "correct" ? <CorrectAnswer /> : <IncorrectAnswer />) :
         (randomItem ? <ShowQuestion /> : null)}

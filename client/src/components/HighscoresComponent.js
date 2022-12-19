@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import { getTop10ByMonth } from '../services/HighscoresService.js';
-import { formatDateAsMonth } from '../utilities/format_date.js';
+import { getTop10ByMonth, postHighscore } from '../services/HighscoresService.js';
+import { formatDateAsMonth, formatDate } from '../utilities/format_date.js';
 
 const formatOrdinal = (number) => {
     switch (number) {
@@ -16,27 +16,78 @@ const formatOrdinal = (number) => {
     }
 };
 
-const HighscoresComponent = ({month}) => {
+const HighscoresComponent = ({month, newHighscore}) => {
     const currentMonth = formatDateAsMonth(new Date());
     if (!month)
         month = currentMonth;
 
     const [highscores, setHighscores] = useState([]);
+    const [saved, setSaved] = useState(false);
 
     useEffect(() => {
         getTop10ByMonth(month)
         .then(data => setHighscores(data));
     }, [month])
 
-    const highscoreItems = highscores.map((highscore, index) => {
+    const newHighscores = [...highscores];
+    
+    /* insert the new highscore! */
+    let insertionIndex = -1;
+    if (newHighscore && !saved) {
+        for (let idx = 0; idx < newHighscores.length; idx++) {
+            if (newHighscore >= newHighscores[idx].score) {
+                insertionIndex = idx;
+                break;
+            }
+        }
+        
+        if (insertionIndex >= 0) {
+            newHighscores.splice(insertionIndex, 0, {
+                score: newHighscore
+            });
+        }
+    }
+
+    /* trim to only 10 items */
+    if (newHighscores.length > 10) {
+        newHighscores.splice(10);
+    }
+
+    const saveHighscore = (event) => {
+        event.preventDefault();
+        const name = event.target.name.value;
+        if (name.length === 0)
+            return;
+
+        const date = formatDate(new Date());
+
+        const newObject = { name, score: newHighscore, date };
+        postHighscore(newObject)
+            .then((result) => {
+                setSaved(true);
+                newHighscores.splice(insertionIndex, 1, result);
+                setHighscores(newHighscores);
+            });
+    }
+
+    const highscoreItems = newHighscores.map((highscore, index) => {
         return <tr>
             <td className="place">{formatOrdinal(index+1)}</td>
             <td className="score">{highscore.score}</td>
-            <td className="name">{highscore.name}</td>
+            { highscore.name ?
+                <td className="name">{highscore.name}</td> :
+                <td className="name">
+                    <form onSubmit={saveHighscore}>
+                        <label htmlFor="save-name">Your nickname: </label>
+                        <input id="save-name" name="name" type="text"/>
+                        <button type="submit">Save</button>
+                    </form>
+                </td> }
         </tr>
     });
 
-    return (
+    return <>
+        { newHighscore ? <p>You scored: {newHighscore}!</p> : null}
         <table className="highscores">
             <thead>
                 <tr>
@@ -49,7 +100,7 @@ const HighscoresComponent = ({month}) => {
                 { highscoreItems }
             </tbody>
         </table>
-    );
+    </>;
 };
 
 export default HighscoresComponent;
