@@ -4,6 +4,10 @@ export const getElements = () => {
     return fetch(baseURL)
         .then(res => res.json())
 }
+export const getElement = (id) => {
+    return fetch(baseURL + id)
+        .then(res => res.json())
+}
 
 export const postElement = (payload) => {
     return fetch(baseURL, {
