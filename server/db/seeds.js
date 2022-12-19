@@ -1,7 +1,7 @@
 use elements_table;
 db.dropDatabase();
 
-db.quiz.insertMany(
+db.trivia.insertMany(
     [
         {"correctAnswer": "Dmitri Mendeleev",
         "incorrectAnswers": ["Niels Bohr","J J Thomson"],
