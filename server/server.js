@@ -17,6 +17,13 @@ MongoClient.connect('mongodb://127.0.0.1:27017', { useUnifiedTopology: true }, (
   const elementsRouter = createRouter(elementsCollection)
   app.use('/api/elements', elementsRouter);
 
+  const quizCollection = db.collection('quiz');
+  const quizRouter = createRouter(quizCollection)
+  app.use('/api/quiz', quizRouter);
+
+
+
+
   app.listen(9000, function(){
     console.log(`app listening on port ${this.address().port}`);
   })
