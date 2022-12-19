@@ -26,7 +26,6 @@ const App = () => {
         <Route path="/quiz" element ={<Quiz allElements={allElements} />} />
         {/* <Route path="/periodictable/element/:id" element ={< SElemtentPage allElements={allElements}/>} /> */}
         <Route path="/element/:name" element ={< SElementPage allElements={allElements}/>} />
-
       </Routes>
     </Router>
   )
