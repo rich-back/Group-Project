@@ -16,3 +16,7 @@
   justify-content: space-evenly;
   list-style: none;
 }
+
+.SingleElement-picture {
+  width: 12rem;
+}
