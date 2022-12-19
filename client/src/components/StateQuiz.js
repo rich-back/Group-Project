@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 const QuizComponent = ({ allElements }) => {
   const [randomItem, updateRandomItem] = useState("Let's Begin")
   const [score, updateScore] = useState(0)
+  const [points, setPoints] = useState(1);
   const [answer, updateAnswer] = useState(null)
 
   function startQuiz() {
@@ -20,18 +21,20 @@ const QuizComponent = ({ allElements }) => {
   }
 
 
-  const addAPoint = (() => {
-    const newScore = score + 1
+  const addPoints = (() => {
+    const newScore = score + points
+    setPoints(points * 2);
     updateScore(newScore)
   })
 
   const handleAnswer = ((value) => {
 
     if (value.target.value === randomItem.standardState) {
-      addAPoint()
+      addPoints();
       updateAnswer(`correct`)
     }
     else {
+      setPoints(1);
       updateAnswer(`wrong`)
     }
   })
