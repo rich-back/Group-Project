@@ -5,6 +5,8 @@ const SingleElement = ({ elementToView }) => {
     const [wikidata, setWikidata] = useState(null);
 
     useEffect(() => {
+        if (!elementToView || !elementToView.atomicNumber)
+            return;
         getElementInformation(elementToView.atomicNumber)
             .then(info => setWikidata(info));
     }, [elementToView]);
