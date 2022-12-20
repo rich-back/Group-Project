@@ -25,6 +25,8 @@ element names:
 body {
   font-family: 'Rubik', sans-serif;
   background-color: rgb(250, 250, 255);
+  margin: 0.5rem;
+  line-height: 1.5rem;
 }
 
 h1, h2, h3, h4, h5, h6, th {
@@ -37,6 +39,14 @@ h1 {
   margin-bottom: -2rem;
 }
 
+/* push the footer to the bottom of the screen */
+#root {
+  display: flex;
+  flex-direction: column;
+  /* full height minus twice the margin on body */
+  min-height: calc(100vh - 2*0.5rem);
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -45,6 +55,16 @@ main {
 
 footer {
   font-size: smaller;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+footer > p {
+  margin: 0;
 }
 
 .welcome-page {
