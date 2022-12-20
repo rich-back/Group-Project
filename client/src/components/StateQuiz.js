@@ -92,7 +92,7 @@ const QuizComponent = ({ allElements }) => {
     <>
       <h2>The Element_Able Quiz!</h2>
       <button onClick={startQuiz}>Get Started!!!</button>
-      {displayHighscore ? <HighscoresComponent newHighscore={score} /> :
+      {displayHighscore ? <HighscoresComponent game="state" newHighscore={score} /> :
        answer ?
         (answer === "correct" ? <CorrectAnswer /> : <IncorrectAnswer />) :
         (randomItem ? <ShowQuestion /> : null)}

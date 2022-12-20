@@ -36,10 +36,10 @@ const createRouter = function(collection) {
     .catch(err => handleError(res, err));
   });
 
-  /* get the top 10 items by score for a given month */
+  /* get the top 10 items by score for a given month and given game*/
   /* the month is in the format 2022-12 */
-  router.get('/top10/:month', (req, res) => {
-    const month = req.params.month;
+  router.get('/game/:game/top10/:month', (req, res) => {
+    const { game, month } = req.params;
     if (!month.match(/^\d{4}-\d{2}$/)) {
       return handleError(res, "month in wrong format");
     }
@@ -47,7 +47,7 @@ const createRouter = function(collection) {
     const date = { $regex: new RegExp(`^${month}`) };
     collection
     .find(
-      { date },
+      { date, game },
       { sort: { 'score': -1 }, limit: 10 }
     )
     .toArray()

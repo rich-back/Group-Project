@@ -3,6 +3,11 @@ import { useEffect, useState } from 'react';
 import { getTop10ByMonth, postHighscore } from '../services/HighscoresService.js';
 import { formatDateAsMonth, formatDate } from '../utilities/format_date.js';
 
+export const GAMES = {
+    "state": "States Quiz",
+    "trivia": "Trivia Quiz"
+};
+
 const formatOrdinal = (number) => {
     switch (number) {
         case 1:
@@ -16,7 +21,9 @@ const formatOrdinal = (number) => {
     }
 };
 
-const HighscoresComponent = ({month, newHighscore}) => {
+const HighscoresComponent = ({game, month, newHighscore}) => {
+    game ||= "state";
+
     const currentMonth = formatDateAsMonth(new Date());
     if (!month)
         month = currentMonth;
@@ -25,9 +32,9 @@ const HighscoresComponent = ({month, newHighscore}) => {
     const [saved, setSaved] = useState(false);
 
     useEffect(() => {
-        getTop10ByMonth(month)
+        getTop10ByMonth(game, month)
         .then(data => setHighscores(data));
-    }, [month])
+    }, [game, month])
 
     const newHighscores = [...highscores];
     
@@ -71,7 +78,7 @@ const HighscoresComponent = ({month, newHighscore}) => {
     }
 
     const highscoreItems = newHighscores.map((highscore, index) => {
-        return <tr>
+        return <tr key={index}>
             <td className="place">{formatOrdinal(index+1)}</td>
             <td className="score">{highscore.score}</td>
             { highscore.name ?
@@ -87,6 +94,7 @@ const HighscoresComponent = ({month, newHighscore}) => {
     });
 
     return <>
+        <h3>Highscores for { GAMES[game] }</h3>
         { newHighscore ? <p>You scored: {newHighscore}!</p> : null}
         <table className="highscores">
             <thead>
@@ -97,7 +105,9 @@ const HighscoresComponent = ({month, newHighscore}) => {
                 </tr>
             </thead>
             <tbody>
-                { highscoreItems }
+                { highscoreItems.length ? highscoreItems :
+                    <tr><th colSpan="3" className="noscores">Play to get on the leaderboard!</th></tr>
+                }
             </tbody>
         </table>
     </>;
