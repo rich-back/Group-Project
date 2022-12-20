@@ -1,4 +1,17 @@
 import React, { useEffect, useState } from "react";
+import testtubePic1 from "../static/testtube1.svg"
+import testtubePic2 from "../static/testtube2.svg"
+import testtubePic3 from "../static/testtube3.svg"
+import testtubePic4 from "../static/testtube4.svg"
+import testtubePic5 from "../static/testtube5.svg"
+import testtubePic6 from "../static/testtube6.svg"
+import testtubePic7 from "../static/testtube7.svg"
+import testtubePic8 from "../static/testtube8.svg"
+import testtubePic9 from "../static/testtube9.svg"
+import testtubePic10 from "../static/testtube10.svg"
+import testtubePic11 from "../static/testtube11.svg"
+
+
 
 import HighscoresComponent from "./HighscoresComponent";
 
@@ -11,6 +24,7 @@ const QuizComponent = ({ allElements }) => {
   const [answer, updateAnswer] = useState(null)
   const [questionNumber, setQuestionNumber] = useState(0);
   const [displayHighscore, setDisplayHighscore] = useState(false);
+  const [imageToShow, updateImageToShow]= useState (testtubePic1)
 
   function startQuiz() {
     nextQuestion();
@@ -75,9 +89,9 @@ const QuizComponent = ({ allElements }) => {
 
   const ShowQuestion = () => (
     <div id="question">
-      { questionNumber === QUIZ_LENGTH ?
+      {questionNumber === QUIZ_LENGTH ?
         <h3>Last question...</h3> :
-        <h3>Question {questionNumber} of {QUIZ_LENGTH}</h3> }
+        <h3>Question {questionNumber} of {QUIZ_LENGTH}</h3>}
       <p>For {points} {points === 1 ? 'point' : 'points'}</p>
       <p>What is the standard state of <span>{randomItem.name}</span>?</p>
       <button value={"solid"} onClick={handleAnswer}>Solid</button>
@@ -87,6 +101,15 @@ const QuizComponent = ({ allElements }) => {
     </div>
   )
 
+  const ShowImage = () => {
+    const imageArray = [testtubePic1, testtubePic2, testtubePic3, testtubePic4, testtubePic5, testtubePic6, testtubePic7, testtubePic8, testtubePic9, testtubePic10, testtubePic11]
+    const imageIndex = (questionNumber - 1)
+    const imageToDisplay = imageArray[imageIndex]
+     updateImageToShow(imageToDisplay)
+     return  (displayHighscore  ? <img className ="testtube" src = {testtubePic11}/> :
+     <img className ="testtube" src = {imageToShow}/>)   ;
+  }
+
   return (
 
     <>
@@ -94,11 +117,17 @@ const QuizComponent = ({ allElements }) => {
       <p>Rules: Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem impedit distinctio autem officiis voluptatem itaque. Officiis quo maiores deleniti voluptatibus aliquid, tempora cum porro error, suscipit illum sed aspernatur atque?</p>
       <button onClick={startQuiz}>Get Started!!!</button>
       {displayHighscore ? <HighscoresComponent game="state" newHighscore={score} /> :
-       answer ?
-        (answer === "correct" ? <CorrectAnswer /> : <IncorrectAnswer />) :
-        (randomItem ? <ShowQuestion /> : null)}
-      { questionNumber === 0 ? null :
-        <h4>Your Score : {score}</h4> }
+        answer ?
+          (answer === "correct" ? <CorrectAnswer /> : <IncorrectAnswer />) :
+          (randomItem ? <ShowQuestion /> : null)}
+      {questionNumber === 0 ? null :
+        <h4>Your Score : {score}</h4>}
+       {questionNumber ===0 ? null:
+        <aside>
+        <ShowImage />
+      </aside>
+      } 
+
     </>
   );
 }
