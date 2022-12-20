@@ -9,7 +9,7 @@ const NavBar = () => {
         <li>
           <NavLink
             to="/"
-            className={({ isActive }) => (isActive ? "active" : undefined)}
+            className={({ isActive }) => (isActive ? "active" : "inactive")}
           >
             Welcome Page
           </NavLink>
@@ -17,7 +17,7 @@ const NavBar = () => {
         <li>
           <NavLink
             to="/periodictable"
-            className={({ isActive }) => (isActive ? "active" : undefined)}
+            className={({ isActive }) => (isActive ? "active" : "inactive")}
           >
             Periodic Table
           </NavLink>
@@ -25,17 +25,18 @@ const NavBar = () => {
         <li>
           <NavLink
             to="/quiz"
-            className={({ isActive }) => (isActive ? "active" : undefined)}
+            className={({ isActive }) => (isActive ? "active" : "inactive")}
           >
-            Quiz
+            Quizzes
           </NavLink>
         </li>
         <li>
           <NavLink
             to="/highscores"
-            className={({ isActive }) => (isActive ? "active" : undefined)}
+            className={({ isActive }) => (isActive ? "active" : "inactive")}
           >
-            Highscores
+            High
+            scores
           </NavLink>
         </li>
       </ul>
