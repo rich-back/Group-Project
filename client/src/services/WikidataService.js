@@ -7,14 +7,21 @@ SELECT ?chemical_element ?chemical_elementLabel ?symbol ?image ?atomicNumber WHE
     ?chemical_element wdt:P31 wd:Q11344.
     ?chemical_element wdt:P246 ?symbol.
     ?chemical_element wdt:P18 ?image.
-      ?chemical_element wdt:P1086 ?atomicNumber.
-  #  FILTER(STR(?symbol) = "Mn")
+    ?chemical_element wdt:P1086 ?atomicNumber.
+#    FILTER(STR(?symbol) = "Mn")
     FILTER (?atomicNumber="${atomicNumber}"^^xsd:decimal)
-  }
-  LIMIT 100
+}
+LIMIT 100
 `;
 
+const cachedElementInformation = {};
+
 export const getElementInformation = (atomicNumber) => {
+    if (cachedElementInformation[atomicNumber])
+        return new Promise((resolve) => {
+            resolve(cachedElementInformation[atomicNumber]);
+        });
+
     const sparql = elementInformationSPARQL(atomicNumber);
     const completeURL = new URL(sparqlBaseURL);
     completeURL.searchParams.set('query', sparql);
@@ -29,6 +36,7 @@ export const getElementInformation = (atomicNumber) => {
             for (const key in data.results.bindings[0]) {
                 result[key] = data.results.bindings[0][key].value;
             }
+            cachedElementInformation[atomicNumber] = result;
             return result;
         });
 }
