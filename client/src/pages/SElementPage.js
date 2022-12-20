@@ -7,11 +7,11 @@ const SElementPage = ({allElements}) => {
 
     
     return(
-    <>
+    <main>
         <h2>Element Details</h2>
         <SElementContainer allElements ={allElements}/>
         
-    </>
+    </main>
     );
 };
 

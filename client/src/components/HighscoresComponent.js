@@ -94,9 +94,9 @@ const HighscoresComponent = ({game, month, newHighscore}) => {
     });
 
     return <>
-        <h3>Highscores for { GAMES[game] }</h3>
         { newHighscore ? <p>You scored: {newHighscore}!</p> : null}
         <table className="highscores">
+            <caption>Highscores for { GAMES[game] }</caption>
             <thead>
                 <tr>
                     <th>Position</th>

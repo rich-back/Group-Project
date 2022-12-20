@@ -3,3 +3,11 @@
     font-weight: 900;
     font-size: larger;
 }
+
+
+#nav{
+    display: flex;
+    margin: 3rem;
+    justify-content: space-evenly;
+    list-style: none;
+}
