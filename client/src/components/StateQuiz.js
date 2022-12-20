@@ -120,6 +120,7 @@ const QuizComponent = ({ allElements }) => {
         {questionNumber === 0 ? null :
           <aside>
             <ShowImage />
+            <p>{questionNumber}/{QUIZ_LENGTH}</p>
           </aside>
         }
         {displayHighscore ? <HighscoresComponent game="state" newHighscore={score} /> :
