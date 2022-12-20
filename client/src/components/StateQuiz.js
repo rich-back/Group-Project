@@ -92,8 +92,16 @@ const QuizComponent = ({ allElements }) => {
   return (
 
     <>
-      <h2>The Element_Able Quiz!</h2>
-      <p>Rules: Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem impedit distinctio autem officiis voluptatem itaque. Officiis quo maiores deleniti voluptatibus aliquid, tempora cum porro error, suscipit illum sed aspernatur atque?</p>
+      <h2>The Atomic States Quiz!</h2>
+      <div className="states-rules">
+        <h3>Rules</h3>
+        <p>We'll ask you ten questions about ten elements.  You just need to
+          pick the right standard state for the element.</p>
+        <p>When you answer multiple questions correctly in a row, we'll give
+          you bonus points!</p>
+        <p>Don't worry about wrong answers; you don't lose any points for them.</p>
+      </div>
+
       <button onClick={startQuiz}>Get Started!!!</button>
       {displayHighscore ? <HighscoresComponent game="state" newHighscore={score} /> :
        answer ?
