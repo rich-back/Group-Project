@@ -11,7 +11,7 @@ const Welcome = () => (
 
     <section>
       <h4>This month's high scores</h4>
-      <HighscoresComponent />
+      <HighscoresComponent game="trivia"/>
     </section>
   </div>
 );
