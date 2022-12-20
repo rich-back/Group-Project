@@ -6,6 +6,7 @@ import './App.css';
 
 import Welcome from "./pages/Welcome";
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 import PTable from "./pages/PTable";
 import Quiz from "./pages/Quiz";
 import SElementPage from "./pages/SElementPage";
@@ -27,8 +28,8 @@ const App = () => {
   return (
     <Router>
       <header>
-      <HeaderImage HeaderPic={HeaderPic}/>
-      <NavBar />
+        <HeaderImage HeaderPic={HeaderPic}/>
+        <NavBar />
       </header>
       <Routes>
         <Route path="/" element={<Welcome />} />
@@ -40,6 +41,9 @@ const App = () => {
         <Route path="/element/:name" element ={< SElementPage allElements={allElements}/>} />
         <Route path="/highscores" element={<HighscoresPage/>} />
       </Routes>
+      <footer>
+        <Footer />
+      </footer>
     </Router>
   )
 }
