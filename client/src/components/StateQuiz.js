@@ -100,6 +100,7 @@ const QuizComponent = ({ allElements }) => {
         <p>When you answer multiple questions correctly in a row, we'll give
           you bonus points!</p>
         <p>Don't worry about wrong answers; you don't lose any points for them.</p>
+        <p>Be in the top 10 scores for this month to add yourself to the high scores leaderboard!</p>
       </div>
 
       <button onClick={startQuiz}>Get Started!!!</button>
