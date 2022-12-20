@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { fireConfetti } from "./confetti";
 
 import HighscoresComponent from "./HighscoresComponent";
 
@@ -48,6 +49,7 @@ const QuizComponent = ({ allElements }) => {
 
   const finishQuiz = () => {
     setDisplayHighscore(true);
+    fireConfetti();
   };
 
   const NextQuestion = () => {
