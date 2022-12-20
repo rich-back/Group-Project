@@ -1,15 +1,5 @@
 import React, { useEffect, useState } from "react";
-import testtubePic1 from "../static/testtube1.svg"
-import testtubePic2 from "../static/testtube2.svg"
-import testtubePic3 from "../static/testtube3.svg"
-import testtubePic4 from "../static/testtube4.svg"
-import testtubePic5 from "../static/testtube5.svg"
-import testtubePic6 from "../static/testtube6.svg"
-import testtubePic7 from "../static/testtube7.svg"
-import testtubePic8 from "../static/testtube8.svg"
-import testtubePic9 from "../static/testtube9.svg"
-import testtubePic10 from "../static/testtube10.svg"
-import testtubePic11 from "../static/testtube11.svg"
+
 
 
 
