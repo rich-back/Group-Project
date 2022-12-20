@@ -43,6 +43,10 @@ main {
   align-items: center;
 }
 
+footer {
+  font-size: smaller;
+}
+
 .welcome-page {
   display: grid;
   grid-template-columns: auto 20rem;
