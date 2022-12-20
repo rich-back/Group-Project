@@ -24,7 +24,7 @@ const QuizComponent = ({ allElements }) => {
   const [answer, updateAnswer] = useState(null)
   const [questionNumber, setQuestionNumber] = useState(0);
   const [displayHighscore, setDisplayHighscore] = useState(false);
-  const [imageToShow, updateImageToShow]= useState (testtubePic1)
+  const [imageToShow, updateImageToShow] = useState(testtubePic1)
 
   function startQuiz() {
     nextQuestion();
@@ -105,9 +105,9 @@ const QuizComponent = ({ allElements }) => {
     const imageArray = [testtubePic1, testtubePic2, testtubePic3, testtubePic4, testtubePic5, testtubePic6, testtubePic7, testtubePic8, testtubePic9, testtubePic10, testtubePic11]
     const imageIndex = (questionNumber - 1)
     const imageToDisplay = imageArray[imageIndex]
-     updateImageToShow(imageToDisplay)
-     return  (displayHighscore  ? <img className ="testtube" src = {testtubePic11}/> :
-     <img className ="testtube" src = {imageToShow}/>)   ;
+    updateImageToShow(imageToDisplay)
+    return (displayHighscore ? <img className="testtube" src={testtubePic11} /> :
+      <img className="testtube" src={imageToShow} />);
   }
 
   return (
@@ -115,18 +115,21 @@ const QuizComponent = ({ allElements }) => {
     <>
       <h2>The Element_Able Quiz!</h2>
       <p>Rules: Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem impedit distinctio autem officiis voluptatem itaque. Officiis quo maiores deleniti voluptatibus aliquid, tempora cum porro error, suscipit illum sed aspernatur atque?</p>
-      <button onClick={startQuiz}>Get Started!!!</button>
-      {displayHighscore ? <HighscoresComponent game="state" newHighscore={score} /> :
-        answer ?
-          (answer === "correct" ? <CorrectAnswer /> : <IncorrectAnswer />) :
-          (randomItem ? <ShowQuestion /> : null)}
-      {questionNumber === 0 ? null :
-        <h4>Your Score : {score}</h4>}
-       {questionNumber ===0 ? null:
-        <aside>
-        <ShowImage />
-      </aside>
-      } 
+        <button onClick={startQuiz}>Get Started!!!</button>
+        <div id="quizContainer">
+        {questionNumber === 0 ? null :
+          <aside>
+            <ShowImage />
+          </aside>
+        }
+        {displayHighscore ? <HighscoresComponent game="state" newHighscore={score} /> :
+          answer ?
+            (answer === "correct" ? <CorrectAnswer /> : <IncorrectAnswer />) :
+            (randomItem ? <ShowQuestion /> : null)}
+        {questionNumber === 0 ? null :
+          <h4>Your Score : {score}</h4>}
+      </div>
+
 
     </>
   );

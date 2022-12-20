@@ -16,7 +16,7 @@ const Welcome = () => (
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque molestiae odio possimus laboriosam nesciunt consectetur. Accusamus mollitia vel nulla illo distinctio. Eveniet inventore, praesentium blanditiis animi voluptate possimus delectus? Exercitationem.</p>
     </article>
 
-    <aside>
+    <aside className="boxed-aside">
       <h3>This month's high scores</h3>
       <HighscoresComponent game="state"/>
     </aside>

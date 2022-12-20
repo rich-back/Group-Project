@@ -194,10 +194,20 @@ button {
   padding: 0.25rem;
 }
 
-aside {
+boxed-aside {
   border: 1px solid black;
 }
 
 .testtube{
   height: 100px
 }
+
+#quizContainer{
+  display: grid;
+  grid-template-columns: 20rem auto 20rem;
+  grid-auto-rows: auto;
+  align-items: center;
+  width: 100%;
+  padding: 2rem;
+  align-content: center;
+  align-items: flex-start;}
