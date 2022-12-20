@@ -10,7 +10,7 @@ const HighscoresPage = () => {
     const handleMonthChange = (e) => setMonth(e.target.value);
     const handleGameChange = (e) => setGame(e.target.value);
 
-    return <div>
+    return <main>
         <form onSubmit={e=>e.preventDefault()}>
             <div className="label-input">
                 <label htmlFor="highscores-game">Choose game: </label>
@@ -27,7 +27,7 @@ const HighscoresPage = () => {
         </form>
 
         <HighscoresComponent game={game} month={month} />
-    </div>;
+    </main>;
 };
 
 export default HighscoresPage;

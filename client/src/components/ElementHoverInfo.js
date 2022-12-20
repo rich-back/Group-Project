@@ -2,12 +2,17 @@ import { Link } from "react-router-dom";
 
 const ElementHoverInfo = ({ element }) => {
     if (!element)
-        return <div className="element element-blank">Hover over an element to see more information.<br/>Click an element to read about it.</div>;
+        return (
+            <div className="element element-blank">
+                <span class="hoveronly">Hover over an element to see more information.<br/></span>
+                Click an element to read about it.
+            </div>
+        );
 
     return (
         <div className="element">
-            <Link to={`/element/${element.name}`}><h4>{element.atomicNumber}. {element.name}</h4></Link>
-            <ul className="element-properties">
+            <h4>{element.atomicNumber}. {element.name}</h4>
+            <ul className="hover-properties">
                 <li><b>Standard State:</b><span>{element.standardState || "unknown"}</span></li>
                 <li><b>Atomic Mass:</b><span>{element.atomicMass || "unknown"}</span></li>
                 <li><b>Electron Configuration:</b><span>{element.electronicConfiguration || "unknown"}</span></li>
