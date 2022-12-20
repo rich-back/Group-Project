@@ -38,7 +38,8 @@ const SingleElement = ({ elementToView }) => {
                 {imgItem}
                 <div className="element-description">
                     <h4>Description:</h4>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim culpa cumque quidem non fuga recusandae incidunt ab et in vel reiciendis quam quaerat, assumenda, odio ipsa, laboriosam iste officiis animi?</p>
+                    { elementToView.description ? <p>{elementToView.description}</p> :
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim culpa cumque quidem non fuga recusandae incidunt ab et in vel reiciendis quam quaerat, assumenda, odio ipsa, laboriosam iste officiis animi?</p> }
                 </div>
             </div>
         </article>
