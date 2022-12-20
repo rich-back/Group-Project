@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import QuizComponent from "../components/QuizComponent";
+import QuizComponent from "../components/StateQuiz";
 
 const QuizContainer = ({allElements}) => (
     <>
