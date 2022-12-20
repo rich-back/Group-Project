@@ -68,7 +68,7 @@ const HighscoresComponent = ({game, month, newHighscore}) => {
 
         const date = formatDate(new Date());
 
-        const newObject = { name, score: newHighscore, date };
+        const newObject = { name, score: newHighscore, date, game };
         postHighscore(newObject)
             .then((result) => {
                 setSaved(true);

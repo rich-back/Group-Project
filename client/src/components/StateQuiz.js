@@ -30,7 +30,7 @@ const QuizComponent = ({ allElements }) => {
 
   const addPoints = (() => {
     const newScore = score + points
-    setPoints(points * 2);
+    setPoints(points + 1);
     updateScore(newScore)
   })
 
@@ -91,6 +91,7 @@ const QuizComponent = ({ allElements }) => {
 
     <>
       <h2>The Element_Able Quiz!</h2>
+      <p>Rules: Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem impedit distinctio autem officiis voluptatem itaque. Officiis quo maiores deleniti voluptatibus aliquid, tempora cum porro error, suscipit illum sed aspernatur atque?</p>
       <button onClick={startQuiz}>Get Started!!!</button>
       {displayHighscore ? <HighscoresComponent game="state" newHighscore={score} /> :
        answer ?
