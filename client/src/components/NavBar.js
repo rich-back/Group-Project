@@ -39,6 +39,14 @@ const NavBar = () => {
             scores
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            to="/timeline"
+            className={({ isActive }) => (isActive ? "active" : "inactive")}
+          >
+           Timeline
+          </NavLink>
+        </li>
       </ul>
     </>
   );
