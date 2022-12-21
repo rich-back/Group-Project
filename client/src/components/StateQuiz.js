@@ -1,15 +1,16 @@
+/* eslint-disable import/no-webpack-loader-syntax */
 import React, { useEffect, useState } from "react";
-import testtubePic1 from "../static/Testtube1.svg"
-import testtubePic2 from "../static/Testtube2.svg"
-import testtubePic3 from "../static/Testtube3.svg"
-import testtubePic4 from "../static/Testtube4.svg"
-import testtubePic5 from "../static/Testtube5.svg"
-import testtubePic6 from "../static/Testtube6.svg"
-import testtubePic7 from "../static/Testtube7.svg"
-import testtubePic8 from "../static/Testtube8.svg"
-// import testtubePic9 from "../static/Testtube9.svg"
-import testtubePic10 from "../static/Testtube10.svg"
-import testtubePic11 from "../static/Testtube11.svg"
+import testtubePic1 from "!file-loader!../static/Testtube1.svg";
+import testtubePic2 from "!file-loader!../static/Testtube2.svg";
+import testtubePic3 from "!file-loader!../static/Testtube3.svg";
+import testtubePic4 from "!file-loader!../static/Testtube4.svg";
+import testtubePic5 from "!file-loader!../static/Testtube5.svg";
+import testtubePic6 from "!file-loader!../static/Testtube6.svg";
+import testtubePic7 from "!file-loader!../static/Testtube7.svg";
+import testtubePic8 from "!file-loader!../static/Testtube8.svg";
+import testtubePic9 from "!file-loader!../static/Testtube9.svg";
+import testtubePic10 from "!file-loader!../static/Testtube10.svg";
+import testtubePic11 from "!file-loader!../static/Testtube11.svg";
 
 import { fireConfetti } from "./confetti";
 
@@ -103,7 +104,7 @@ const QuizComponent = ({ allElements }) => {
   )
 
   const ShowImage = () => {
-    const imageArray = [testtubePic1, testtubePic2, testtubePic3, testtubePic4, testtubePic5, testtubePic6, testtubePic7, testtubePic8, testtubePic8, testtubePic10, testtubePic11]
+    const imageArray = [testtubePic1, testtubePic2, testtubePic3, testtubePic4, testtubePic5, testtubePic6, testtubePic7, testtubePic8, testtubePic9, testtubePic10, testtubePic11]
     const imageIndex = (questionNumber - 1)
     const imageToDisplay = imageArray[imageIndex]
     updateImageToShow(imageToDisplay)
