@@ -235,9 +235,11 @@ button, input[type="submit"] {
   border: 5px solid;
   padding: 0.5rem;
   border-radius: 0.6rem;
-align-items: center;
 text-align: center;
 border-color: #053B84;
+display: flex;
+flex-direction: column;
+align-items: center;
 }
 
 
