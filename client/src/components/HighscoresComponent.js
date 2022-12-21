@@ -21,7 +21,7 @@ const formatOrdinal = (number) => {
     }
 };
 
-const HighscoresComponent = ({game, month, newHighscore}) => {
+const HighscoresComponent = ({ game, month, newHighscore, score }) => {
     game ||= "state";
 
     const currentMonth = formatDateAsMonth(new Date());
@@ -33,11 +33,11 @@ const HighscoresComponent = ({game, month, newHighscore}) => {
 
     useEffect(() => {
         getTop10ByMonth(game, month)
-        .then(data => setHighscores(data));
+            .then(data => setHighscores(data));
     }, [game, month])
 
     const newHighscores = [...highscores];
-    
+
     /* insert the new highscore! */
     let insertionIndex = -1;
     if (newHighscore && !saved) {
@@ -47,7 +47,7 @@ const HighscoresComponent = ({game, month, newHighscore}) => {
                 break;
             }
         }
-        
+
         if (insertionIndex >= 0) {
             newHighscores.splice(insertionIndex, 0, {
                 score: newHighscore
@@ -79,24 +79,28 @@ const HighscoresComponent = ({game, month, newHighscore}) => {
 
     const highscoreItems = newHighscores.map((highscore, index) => {
         return <tr key={index}>
-            <td className="place">{formatOrdinal(index+1)}</td>
+            <td className="place">{formatOrdinal(index + 1)}</td>
             <td className="score">{highscore.score}</td>
-            { highscore.name ?
+            {highscore.name ?
                 <td className="name">{highscore.name}</td> :
                 <td className="name">
                     <form onSubmit={saveHighscore}>
                         <label htmlFor="save-name">Your nickname: </label>
-                        <input id="save-name" name="name" type="text"/>
-                        <button type="submit">Save</button>
+                        <input id="save-name" name="name" type="text" />
+                        <button type="submit" id="save">Save</button>
                     </form>
-                </td> }
+                </td>}
         </tr>
     });
 
     return <>
-        { newHighscore ? <p>You scored: {newHighscore}!</p> : null}
+        {score ?
+            <div id="final-score-box">
+                <h4>Your Final Score : </h4>
+                <p>{score}</p>
+            </div> : null}
         <table className="highscores">
-            <caption>Highscores for { GAMES[game] }</caption>
+            <caption>Highscores Table for {GAMES[game]}</caption>
             <thead>
                 <tr>
                     <th>Position</th>
@@ -105,11 +109,12 @@ const HighscoresComponent = ({game, month, newHighscore}) => {
                 </tr>
             </thead>
             <tbody>
-                { highscoreItems.length ? highscoreItems :
+                {highscoreItems.length ? highscoreItems :
                     <tr><th colSpan="3" className="noscores">Play to get on the leaderboard!</th></tr>
                 }
             </tbody>
         </table>
+        {/* { newHighscore ? <p>You scored: {newHighscore}!</p> : null} */}
     </>;
 };
 
