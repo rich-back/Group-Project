@@ -26,7 +26,6 @@ body {
   font-family: 'Rubik', sans-serif;
   background-color: rgb(250, 250, 255);
   line-height: 1.5rem;
-  margin: 0.5;
 }
 
 h1, h2, h3, h4, h5, h6, th {
@@ -72,6 +71,7 @@ footer > p {
   grid-template-columns: auto 20rem;
   grid-auto-rows: auto;
   align-items: center;
+width: 95%;
 }
 
 .element {
@@ -220,6 +220,18 @@ footer > p {
     justify-content: space-between;
     width: 95%;
 }
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+#high-score-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
 }
 
 button, input[type="submit"] {
@@ -305,10 +317,11 @@ main > button:hover {
 }
 .quiz-home{
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  height: 100%;
-  justify-content: flex-start;
+    flex-direction: column;
+    align-items: stretch;
+    height: 100%;
+    justify-content: space-between;
+    text-align: center;
 }
 
 #rules-page{
@@ -422,4 +435,11 @@ form{
 
 a {
   color: #053B84;
+}
+
+#high-score-page{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
 }
