@@ -127,23 +127,28 @@ const QuizComponent = ({ allElements }) => {
 
     <>
       <h2>The Element_Able Quiz!</h2>
-      <div id={questionNumber === 0 ? "rules-page" : "quizContainer"}>
+      <div id={(questionNumber === 0 ||  displayHighscore) ? "rules-page" : "quizContainer"}>
         {questionNumber === 0 ? < ShowRules /> :
-          <aside>
-            {questionNumber === QUIZ_LENGTH ?
-              <h3>Last question...</h3> :
-              <h3>Question {questionNumber} of {QUIZ_LENGTH}</h3>}
-            <ShowImage />
-          </aside>
+          displayHighscore ? null :
+            <aside>
+              {questionNumber === QUIZ_LENGTH ?
+                <h3>Last question...</h3> :
+                <h3>Question {questionNumber} of {QUIZ_LENGTH}</h3>}
+              <ShowImage />
+            </aside>
         }
-        {displayHighscore ? <HighscoresComponent game="state" newHighscore={score} /> :
+        {displayHighscore ? <HighscoresComponent game="state" newHighscore={score} score={score} /> :
           answer ?
             (answer === "correct" ? <CorrectAnswer /> : <IncorrectAnswer />) :
             (randomItem ? <ShowQuestion /> : null)}
         {questionNumber === 0 ? null :
           <aside>
-            <h4>Your Current Score : </h4>
-            <p id="score">{score}</p>
+            {displayHighscore ? null:
+              <div>
+                <h4>Your Current Score : </h4>
+                <p id="score">{score}</p>
+              </div>
+            }
           </aside>}
       </div>
     </>
