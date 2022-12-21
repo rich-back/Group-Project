@@ -140,7 +140,10 @@ const QuizComponent = ({ allElements }) => {
             (answer === "correct" ? <CorrectAnswer /> : <IncorrectAnswer />) :
             (randomItem ? <ShowQuestion /> : null)}
         {questionNumber === 0 ? null :
-          <h4>Your Score : {score}</h4>}
+          <aside>
+            <h4>Your Current Score : </h4>
+            <p id="score">{score}</p>
+          </aside>}
       </div>
     </>
   );

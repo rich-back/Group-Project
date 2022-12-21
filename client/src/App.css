@@ -355,3 +355,9 @@ main > button:hover {
 #correct h3{
   color:#6F9D26
 }
+#score{
+  text-align: center;
+  font-family: 'Rubik Mono One', sans-serif;
+  font-size:xx-large;
+  color:#367F8F;
+}
