@@ -90,8 +90,8 @@ const QuizComponent = ({ allElements }) => {
 
   const ShowQuestion = () => (
     <div id="question">
-      <p>For {points} {points === 1 ? 'point' : 'points'}</p>
-      <p>What is the standard state of <span>{randomItem.name}</span>?</p>
+      <p>For <b>{points} </b>{points === 1 ? 'point' : 'points'}</p>
+      <h3>What is the standard state of <span>{randomItem.name}</span>?</h3>
       <button value={"solid"} onClick={handleAnswer}>Solid</button>
       <button value={"gas"} onClick={handleAnswer}>Gas</button>
       <button value={"liquid"} onClick={handleAnswer}>Liquid</button>
