@@ -91,11 +91,8 @@ const QuizComponent = ({ allElements }) => {
 
   const ShowQuestion = () => (
     <div id="question">
-      {questionNumber === QUIZ_LENGTH ?
-        <h3>Last question...</h3> :
-        <h3>Question {questionNumber} of {QUIZ_LENGTH}</h3>}
-      <p>For {points} {points === 1 ? 'point' : 'points'}</p>
-      <p>What is the standard state of <span>{randomItem.name}</span>?</p>
+      <p>For <b>{points} </b>{points === 1 ? 'point' : 'points'}</p>
+      <h3>What is the standard state of <span>{randomItem.name}</span>?</h3>
       <button value={"solid"} onClick={handleAnswer}>Solid</button>
       <button value={"gas"} onClick={handleAnswer}>Gas</button>
       <button value={"liquid"} onClick={handleAnswer}>Liquid</button>
@@ -111,11 +108,8 @@ const QuizComponent = ({ allElements }) => {
     return (displayHighscore ? <img className="testtube" src={testtubePic11} /> :
       <img className="testtube" src={imageToShow} />);
   }
-
-  return (
-
+  const ShowRules = () => (
     <>
-      <h2>The Element_Able Quiz!</h2>
       <div className="states-rules">
         <h3>Rules</h3>
         <p>We'll ask you ten questions about ten elements.  You just need to
@@ -125,13 +119,21 @@ const QuizComponent = ({ allElements }) => {
         <p>Don't worry about wrong answers; you don't lose any points for them.</p>
         <p>Be in the top 10 scores for this month to add yourself to the high scores leaderboard!</p>
       </div>
-
       <button onClick={startQuiz}>Get Started!!!</button>
-      <div id="quizContainer">
-        {questionNumber === 0 ? null :
+    </>
+  )
+
+  return (
+
+    <>
+      <h2>The Element_Able Quiz!</h2>
+      <div id={questionNumber === 0 ? "rules-page" : "quizContainer"}>
+        {questionNumber === 0 ? < ShowRules /> :
           <aside>
+            {questionNumber === QUIZ_LENGTH ?
+              <h3>Last question...</h3> :
+              <h3>Question {questionNumber} of {QUIZ_LENGTH}</h3>}
             <ShowImage />
-            <p>{questionNumber}/{QUIZ_LENGTH}</p>
           </aside>
         }
         {displayHighscore ? <HighscoresComponent game="state" newHighscore={score} /> :
@@ -139,7 +141,10 @@ const QuizComponent = ({ allElements }) => {
             (answer === "correct" ? <CorrectAnswer /> : <IncorrectAnswer />) :
             (randomItem ? <ShowQuestion /> : null)}
         {questionNumber === 0 ? null :
-          <h4>Your Score : {score}</h4>}
+          <aside>
+            <h4>Your Current Score : </h4>
+            <p id="score">{score}</p>
+          </aside>}
       </div>
     </>
   );
