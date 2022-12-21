@@ -2,12 +2,13 @@ import React from "react";
 import { useState, useEffect } from 'react';
 import { getRandomTrivia } from "../services/TriviaServices";
 
-
 const Trivia = () => {
 
     const [randomTrivia, setRandomTrivia] = useState (null)
     const [randomTrivia2, setRandomTrivia2] = useState (null)
-    const [randomAnswers, setRandomAnswers] = useState (null)
+    const [answers, setAnswers] = useState([])
+    const [selectedAnswer, setSelectedAnswer] =useState([])
+    const [result, setResult]=useState([])
     const [score, setScore]= useState (0)
    
 
@@ -17,56 +18,88 @@ const Trivia = () => {
             
     }, []);
 
-    //mak an array out of all the answers
-
-    const answersArray = randomTrivia.map(trivia => randomTrivia.incorrectAnswers).push(randomTrivia.correctAnswer)
-    
-
-//function to randomise array
-    function randomiseAnswers(array) {
-        const randomAnswerArray = []
-        let runningIndex = array.length
-        while (runningIndex> 0){
-            const randomindex = Math.floor(Math.random() * array.length);
-            const newRandomItem = answersArray[randomindex];
-            randomAnswerArray.push(newRandomItem);
-            runningIndex -=1;
-        }
-        return randomAnswerArray
-    }
-
     const handleClick = () => {
+        setAnswers(randomTrivia[0].answers)
         setRandomTrivia2(randomTrivia)
-        setRandomAnswers(randomiseAnswers(randomTrivia))
-        getRandomTrivia()
-        .then(info => setRandomTrivia(info));
-    }
+        getRandomTrivia().then(info => setRandomTrivia(info));
+    };
 
+    const handleAnswerSelect = (event)=>{
+        console.log(event.target.value)
+        setSelectedAnswer(event.target.value)
+    };
 
+    const handleClick2 = (event)=>{
+        event.preventDefault()
+        questionAnswered();
+        handleClick();
+    };
+
+    const questionAnswered = ()=>{
+        if (answers.value){ 
+            setResult(`Correct, the answer to ${randomTrivia2.question} is ${randomTrivia2.answers}`)
+        }
+        else {setResult(`False, the answer to ${randomTrivia2} is ${randomTrivia2.answers}`)}   
+    };
+
+    const triviaItems = answers.map((answer, key)=>{
+        return(
+        <li key = {key}>
+         <input id={key} type="radio"  name="answerSelect" value={answer.text} onChange={handleAnswerSelect} /> 
+         <label htmlFor={key}>Answer: {key+1}: {answer.text}</label>
+        </li>)
+    });
 
     return(
-
-        <>
+        <main>
         <h2>The Element_Able Trivia Questions!</h2>
 
-        {!randomAnswers ?<button onClick={handleClick}>Get Started!!!</button> : for 
+        {answers.length ===0 ?<button onClick={handleClick}>Get Started!!!</button>: 
 
-        <form>
-              <button value={} onClick={handleAnswer}>Solid</button>
-              <button value={"gas"} onClick={handleAnswer}>Gas</button>
-              <button value={"liquid"} onClick={handleAnswer}>Liquid</button></form>
-         }
+     
+        <div>
+            <p>this is the random trivia state {JSON.stringify(randomTrivia)}</p>
+            <p>this is the random trivia 2 state {JSON.stringify(randomTrivia2)}</p>
+            <p>this is the answers state {JSON.stringify(answers)}</p>
+            <p>this is the selected answer state {JSON.stringify(selectedAnswer)}</p>
+          
+            <form>
+                {triviaItems}
+                <input type="submit" value="Save Item" className={"button"} onClick={handleClick2}/> 
+            </form>
+
+
+         </div>}
+
+        </main>   
+
+
+)};
+
+export default Trivia;
+
+// {/* <input id="high" type="radio" checked={priority === "high"}name="prioritySelect" value="high" onChange={handlePrioritySelect} />
+//         <label htmlFor="low">Low</label>
+//         <input id="low" type="radio" name="prioritySelect" value="low" onChange={handlePrioritySelect} checked={priority === "low"}/> 
+//         <input type="submit" value="Save Item" className={"button"}/> */}
+
+        // checked={ answer === {answer.value}}
+       
+        // randomAnswers.map((answer, index)=>{
+        //     <li><input type = "radio" id = {index} "answer" name= "answers" /></li>
+        // }
 
 
         
-        <h3>{randomTrivia.question}</h3>
-        <h4>Choose your Answer</h4>
-  
-      </>
+        
+        
+//         {/* <input  type= "radio"} id= {""} name ="ansers" value={} onClick={handleAnswer}>Solid</button> */}
+             
+         
 
-)};
-    
-
-
-
-export default Trivia;
+// {/* <input type="radio" id="html" name="fav_language" value="HTML">
+// <label for="html">HTML</label><br>
+// <input type="radio" id="css" name="fav_language" value="CSS">
+// <label for="css">CSS</label><br>
+// <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+// <label for="javascript">JavaScript</label> */}
