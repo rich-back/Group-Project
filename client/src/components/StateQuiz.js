@@ -90,9 +90,6 @@ const QuizComponent = ({ allElements }) => {
 
   const ShowQuestion = () => (
     <div id="question">
-      {questionNumber === QUIZ_LENGTH ?
-        <h3>Last question...</h3> :
-        <h3>Question {questionNumber} of {QUIZ_LENGTH}</h3>}
       <p>For {points} {points === 1 ? 'point' : 'points'}</p>
       <p>What is the standard state of <span>{randomItem.name}</span>?</p>
       <button value={"solid"} onClick={handleAnswer}>Solid</button>
@@ -132,6 +129,9 @@ const QuizComponent = ({ allElements }) => {
       <div id={questionNumber === 0 ? "rules-page" : "quizContainer"}>
         {questionNumber === 0 ? < ShowRules /> :
           <aside>
+            {questionNumber === QUIZ_LENGTH ?
+              <h3>Last question...</h3> :
+              <h3>Question {questionNumber} of {QUIZ_LENGTH}</h3>}
             <ShowImage />
           </aside>
         }
