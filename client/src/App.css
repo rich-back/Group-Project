@@ -262,3 +262,37 @@ article{
   padding-left: 5rem;
   padding-right: 5rem;
 }
+
+main > a {
+    font-family: 'Rubik Mono One', sans-serif;
+    margin: 0.5rem;
+    padding: 1rem;
+    justify-content: center;
+    text-decoration: none;
+    text-align: center;
+    color: whitesmoke;
+    border: 4px solid #EBAB0A; 
+    border-radius: 0.6rem;
+    background-color: #053B84;
+}
+main > a:hover {
+  background-color:#EBAB0A;
+}
+
+main > button{
+    font-family: 'Rubik Mono One', sans-serif;
+    margin: 0.5rem;
+    padding: 1rem;
+    justify-content: center;
+    text-decoration: none;
+    text-align: center;
+    color: whitesmoke;
+    border: 4px solid #EBAB0A; 
+    border-radius: 0.6rem;
+    background-color: #053B84;
+}
+main > button:hover {
+  background-color:#EBAB0A;
+}
+
+
