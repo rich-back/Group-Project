@@ -361,3 +361,12 @@ main > button:hover {
   font-size:xx-large;
   color:#367F8F;
 }
+
+.timeline-wrapper > div > div > div:first-child {
+  background: #053B84 !important;
+  outline: 4px solid #EBAB0A;
+}
+
+a {
+  color: #053B84;
+}
