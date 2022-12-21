@@ -361,3 +361,14 @@ main > button:hover {
   font-size:xx-large;
   color:#367F8F;
 }
+
+#trivia-img{
+  width: 15rem;
+}
+#quizContainer form {
+  width: 25rem;
+}
+#quizContainer form ul {
+  list-style: none;
+  padding:0;
+}

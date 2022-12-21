@@ -47,7 +47,9 @@ const HighscoresComponent = ({game, month, newHighscore}) => {
                 break;
             }
         }
-        
+        if (newHighscores.length ===0){
+            insertionIndex = 0
+        }
         if (insertionIndex >= 0) {
             newHighscores.splice(insertionIndex, 0, {
                 score: newHighscore

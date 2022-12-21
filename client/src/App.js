@@ -37,8 +37,7 @@ const App = () => {
         <Route path="/periodictable" element ={<PTable allElements={allElements} />} />
         <Route path="/quiz" element ={<Quiz allElements={allElements} />} />
         <Route path="/quiz/state" element ={<main><QuizComponent allElements={allElements} /></main>} />
-        <Route path="/quiz/trivia" element ={<main><Trivia allElements={allElements} /></main>} />
-        {/* <Route path="/periodictable/element/:id" element ={< SElemtentPage allElements={allElements}/>} /> */}
+        <Route path="/quiz/trivia" element ={<Trivia allElements={allElements} />} />
         <Route path="/element/:name" element ={< SElementPage allElements={allElements}/>} />
         <Route path="/highscores" element={<HighscoresPage/>} />
         <Route path="/timeline" element={<TimeLinePage allElements={allElements}/>} />

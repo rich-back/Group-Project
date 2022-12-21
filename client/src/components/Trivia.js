@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from 'react';
 import { getRandomTrivia } from "../services/TriviaServices";
+import HighscoresComponent from "./HighscoresComponent";
 
 const Trivia = () => {
 
@@ -10,6 +11,8 @@ const Trivia = () => {
     const [selectedAnswer, setSelectedAnswer] =useState(null)
     const [result, setResult]=useState(null)
     const [score, setScore]= useState (0)
+    const [questionNumber, setQuestionNumber]= useState(1)
+    const [quizFinished, setQuizFinished] = useState(false)
 
     
    
@@ -69,12 +72,17 @@ const Trivia = () => {
 
 
     const questionAnswered = ()=>{
+        setQuestionNumber(questionNumber+1)
         if (answers[selectedAnswer].value){ 
             addScore()
-            setResult(<p>Correct, the answer to: <br></br>{randomTrivia2.question} <br></br>
-            is: <br></br>{answers[selectedAnswer].text}</p>)
+            setResult(<div id = "correct"><h3>Correct, the answer to: </h3>{randomTrivia2.question} <br></br>
+            is: <br></br>{answers[selectedAnswer].text}</div>)
         }
-        else {setResult(<p>False, the answer to: <br></br>{randomTrivia2.question} <br></br>is <br></br>{filterRightAnswer[0].text}</p>)}   
+        else {setResult(<div id = "incorrect"><h3>False, the answer to: </h3>{randomTrivia2.question} <br></br>is <br></br>{filterRightAnswer[0].text}</div>)};
+        if (questionNumber === 10){
+            setQuizFinished(true)
+
+        }
     };
 
     const triviaItems = answers.map((answer, key)=>{
@@ -90,18 +98,27 @@ const Trivia = () => {
         <h2>The Element_Able Trivia Questions!</h2>
 
         {answers.length ===0 ?<button onClick={handleClick}>Get Started!!!</button>: 
+         
+         quizFinished ? 
+
+         <div id = "quizContainer">{result} <br></br><HighscoresComponent game="trivia" newHighscore={score} /></div>:
+         
 
      
-        <div>
-    
+        <div id = "quizContainer">
+            <img src= "https://www.pta.co.uk/pta/media/169-quiz-step-by-step.jpg" alt= "question mark" id = "trivia-img"></img>
           
             <form>
-                {randomTrivia2.question}
+                <h3>{randomTrivia2.question}</h3>
+                <ul>
                 {triviaItems}
+                </ul>
                 <input type="submit" value="Submit Answer" className={"button"} onClick={handleClick2}/> 
-            </form>
+            
 
-            <div>{result} <br></br>You have {score} points</div>
+            <div>{result} </div>
+            </form>
+            <aside><h4>Your current score is:</h4> <p id = "score">{score}</p></aside>
 
 
          </div>}
