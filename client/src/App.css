@@ -363,6 +363,16 @@ main > button:hover {
   color:#367F8F;
 }
 
+#trivia-img{
+  width: 15rem;
+}
+#quizContainer form {
+  width: 25rem;
+}
+#quizContainer form ul {
+  list-style: none;
+  padding:0;
+  
 #final-score-box{
   text-align: center;
   color: whitesmoke;
