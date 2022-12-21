@@ -14,18 +14,18 @@ const Trivia = () => {
 
     useEffect(() => {
         getRandomTrivia()
-            .then(info => setRandomTrivia(info));
+            .then(info => setRandomTrivia(info[0]));
             
     }, []);
 
     const handleClick = () => {
-        setAnswers(randomTrivia[0].answers)
+        setAnswers(randomTrivia.answers)
+        
         setRandomTrivia2(randomTrivia)
-        getRandomTrivia().then(info => setRandomTrivia(info));
+        getRandomTrivia().then(info => setRandomTrivia(info[0]));
     };
 
     const handleAnswerSelect = (event)=>{
-        console.log(event.target.value)
         setSelectedAnswer(event.target.value)
     };
 
@@ -35,17 +35,24 @@ const Trivia = () => {
         handleClick();
     };
 
+    const answersToFilter = answers
+    
+    const filterRightAnswer = answersToFilter.filter((answer, index) => (answer.value === true));
+    
+   
+
+
     const questionAnswered = ()=>{
-        if (answers.value){ 
-            setResult(`Correct, the answer to ${randomTrivia2.question} is ${randomTrivia2.answers}`)
+        if (randomTrivia2.answers[selectedAnswer].value){ 
+            setResult(`Correct, the answer to ${randomTrivia2.question} is ${randomTrivia2.answers[selectedAnswer].text}`)
         }
-        else {setResult(`False, the answer to ${randomTrivia2} is ${randomTrivia2.answers}`)}   
+        else {setResult(`False, the answer to ${randomTrivia2.question} is ${filterRightAnswer[0].text}`)}   
     };
 
     const triviaItems = answers.map((answer, key)=>{
         return(
         <li key = {key}>
-         <input id={key} type="radio"  name="answerSelect" value={answer.text} onChange={handleAnswerSelect} /> 
+         <input id={key} type="radio"  name="answerSelect" value={key} onChange={handleAnswerSelect} /> 
          <label htmlFor={key}>Answer: {key+1}: {answer.text}</label>
         </li>)
     });
@@ -58,15 +65,18 @@ const Trivia = () => {
 
      
         <div>
-            <p>this is the random trivia state {JSON.stringify(randomTrivia)}</p>
+            {/* <p>this is the random trivia state {JSON.stringify(randomTrivia)}</p>
             <p>this is the random trivia 2 state {JSON.stringify(randomTrivia2)}</p>
             <p>this is the answers state {JSON.stringify(answers)}</p>
-            <p>this is the selected answer state {JSON.stringify(selectedAnswer)}</p>
+            <p>this is the selected answer state {JSON.stringify(selectedAnswer)}</p> */}
           
             <form>
+                {randomTrivia2.question}
                 {triviaItems}
-                <input type="submit" value="Save Item" className={"button"} onClick={handleClick2}/> 
+                <input type="submit" value="Submit Answer" className={"button"} onClick={handleClick2}/> 
             </form>
+
+            <p>{result}</p>
 
 
          </div>}
