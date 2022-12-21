@@ -110,11 +110,8 @@ const QuizComponent = ({ allElements }) => {
     return (displayHighscore ? <img className="testtube" src={testtubePic11} /> :
       <img className="testtube" src={imageToShow} />);
   }
-
-  return (
-
+  const ShowRules = () => (
     <>
-      <h2>The Element_Able Quiz!</h2>
       <div className="states-rules">
         <h3>Rules</h3>
         <p>We'll ask you ten questions about ten elements.  You just need to
@@ -124,13 +121,18 @@ const QuizComponent = ({ allElements }) => {
         <p>Don't worry about wrong answers; you don't lose any points for them.</p>
         <p>Be in the top 10 scores for this month to add yourself to the high scores leaderboard!</p>
       </div>
-
       <button onClick={startQuiz}>Get Started!!!</button>
-      <div id="quizContainer">
-        {questionNumber === 0 ? null :
+    </>
+  )
+
+  return (
+
+    <>
+      <h2>The Element_Able Quiz!</h2>
+      <div id={questionNumber === 0 ? "rules-page" : "quizContainer"}>
+        {questionNumber === 0 ? < ShowRules /> :
           <aside>
             <ShowImage />
-            <p>{questionNumber}/{QUIZ_LENGTH}</p>
           </aside>
         }
         {displayHighscore ? <HighscoresComponent game="state" newHighscore={score} /> :

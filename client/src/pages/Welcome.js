@@ -4,7 +4,7 @@ import HighscoresComponent from "../components/HighscoresComponent";
 
 
 const Welcome = () => (
-  <main className="welcome-page">
+  <main className="main-content">
     <article>
       <h2>Welcome</h2>
 
