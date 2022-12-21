@@ -207,6 +207,13 @@ footer > p {
   .hoveronly {
     display: none;
   }
+  header {
+    display: flex;
+    flex-direction: column;
+    border-bottom:#D60F6D solid;
+    margin-bottom: 2rem;
+    align-items: center;
+  }
 }
 
 button {
@@ -218,9 +225,16 @@ button {
   padding: 0.25rem;
 }
 
-boxed-aside {
-  border: 1px solid black;
+.boxed-aside {
+  border: 5px solid;
+  border-color: #EBAB0A;
+  padding: 0.5rem;
+  border-radius: 0.6rem;
+background-color: #ebab0a40;
+align-items: center;
+text-align: center;
 }
+
 
 .testtube{
   height: 20rem;
@@ -236,4 +250,15 @@ boxed-aside {
   align-content: center;
   justify-items: center;
   justify-content: space-between;
+}
+header {
+  display: flex;
+  border-bottom:#D60F6D solid;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+article{
+  padding-left: 5rem;
+  padding-right: 5rem;
 }

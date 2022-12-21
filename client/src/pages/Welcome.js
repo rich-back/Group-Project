@@ -8,7 +8,7 @@ const Welcome = () => (
     <article>
       <h2>Welcome</h2>
 
-      <a href="/quiz"><button>Test Your Knowledge!</button></a>
+      {/* <a href="/quiz"><button>Test Your Knowledge!</button></a> */}
       <p>Welcome to Element_Able - Your guide to the Period Table</p>
 
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, explicabo. Eos consequatur optio necessitatibus, voluptatem cupiditate quae eveniet eius fuga esse cum ipsa numquam repellat, dignissimos labore. Eligendi, debitis unde!</p>
