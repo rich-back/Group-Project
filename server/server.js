@@ -18,9 +18,9 @@ MongoClient.connect('mongodb://127.0.0.1:27017', { useUnifiedTopology: true }, (
   const elementsRouter = createRouter(elementsCollection)
   app.use('/api/elements', elementsRouter);
 
-  const quizCollection = db.collection('quiz');
-  const quizRouter = createRouter(quizCollection)
-  app.use('/api/quiz', quizRouter);
+  const triviaCollection = db.collection('trivia');
+  const triviaRouter = createRouter(triviaCollection)
+  app.use('/api/trivia', triviaRouter);
 
   const highscoresCollection = db.collection('highscores');
   const highscoresRouter = createRouter(highscoresCollection);
