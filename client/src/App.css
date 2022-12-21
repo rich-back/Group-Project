@@ -372,6 +372,7 @@ main > button:hover {
 #quizContainer form ul {
   list-style: none;
   padding:0;
+}
   
 #final-score-box{
   text-align: center;
