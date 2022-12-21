@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { getElementInformation } from "../services/WikidataService";
 
 const SingleElement = ({ elementToView }) => {
@@ -27,6 +28,7 @@ const SingleElement = ({ elementToView }) => {
     return (
         <article className={`SingleElement ${classes.join(" ")}`}>
             <h3>{elementToView.atomicNumber}. {elementToView.name}</h3>
+            <p><Link to="/periodictable">Back to the table</Link></p>
             <div className="element-with-picture">
                 <ul className="element-properties">
                     <li><h4>Standard State: </h4><span>{elementToView.standardState || "unknown"}</span></li>
