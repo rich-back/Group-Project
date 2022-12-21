@@ -15,6 +15,7 @@ import HeaderPic from "./static/elementablesLogobanner.svg"
 import QuizComponent from "./components/StateQuiz";
 import Trivia from "./components/Trivia";
 import HighscoresPage from "./pages/HighscoresPage";
+import TimeLinePage from "./pages/TimeLinePage";
 
 const App = () => {
 
@@ -40,6 +41,7 @@ const App = () => {
         {/* <Route path="/periodictable/element/:id" element ={< SElemtentPage allElements={allElements}/>} /> */}
         <Route path="/element/:name" element ={< SElementPage allElements={allElements}/>} />
         <Route path="/highscores" element={<HighscoresPage/>} />
+        <Route path="/timeline" element={<TimeLinePage allElements={allElements}/>} />
       </Routes>
       <footer>
         <Footer />
