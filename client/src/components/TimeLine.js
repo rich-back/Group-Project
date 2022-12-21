@@ -1,25 +1,21 @@
 import React from "react";
 import EventsTimeline from "react-events-timeline";
 import "react-events-timeline/dist/main.css";
+import { Link } from "react-router-dom";
 
 const TimeLine = ({ elements }) => {
+    console.log(elements)
   const data = elements
     .filter((element)=> element.yearDiscovered !== 'Ancient' )
     .sort((a, b) => a.yearDiscovered - b.yearDiscovered)
     .map((element) => {
       return {
         date: element.yearDiscovered,
-        title: `${element.atomicNumber}. ${element.name}`,
-        label: "",
-        key: element.symbol,
+        title: <Link to={`/element/${element.name}`} className="atomic-number">{element.atomicNumber}. {element.name}</Link>,
+        label: '',
         content: (
           <div>
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/3214/3214053.png"
-              style={{ width: "50px", height: "auto" }}
-            />
-            <br></br>
-            Description
+            {element.description}
           </div>
         ),
       };
