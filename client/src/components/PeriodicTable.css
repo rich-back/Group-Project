@@ -1,27 +1,3 @@
-/* this might want to move to another CSS file */
-/* this block defines the colours/sizes of stuff in the periodic table */
-:root {
-    --periodic-table-cell-size: 3rem;
-    --element-in-table-bg-light: bisque;
-    --element-in-table-bg-hover: yellow;
-    --element-in-table-bg-dark: brown;
-    --element-in-table-font-size: 1.5rem;
-}
-
-/* change colours of some elements */
-.ElementInTable.type-metallic {
-    --element-in-table-bg-light: lightblue;
-    --element-in-table-bg-hover: aqua;
-    --element-in-table-bg-dark: darkblue;
-}
-
-.ElementInTable.groupBlock-lanthanoid,
-.ElementInTable.groupBlock-actinoid {
-    --element-in-table-bg-light: lightgreen;
-    --element-in-table-bg-hover: chartreuse;
-    --element-in-table-bg-dark: green;
-}
-
 /* This makes the layout work */
 /* The styled-component in ElementInTable just sets up variables and this picks up those positions */
 .PeriodicTable {
@@ -31,8 +7,6 @@
     gap: calc(var(--periodic-table-cell-size) / 8);
     padding: calc(var(--periodic-table-cell-size) / 8);
 
-    background: white;
-    border: 1px solid black;
     width: fit-content;
     height: fit-content;
 }
