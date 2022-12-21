@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "server:dev": "nodemon server.js",
-    "seeds": "mongosh < db/seeds.js" 
+    "seeds": "mongosh <db/seeds_elements.js && mongosh <db/seeds_quiz.js && mongosh <db/seeds_highscores.js && node db/desc.js"
   },
   "author": "",
   "license": "ISC",

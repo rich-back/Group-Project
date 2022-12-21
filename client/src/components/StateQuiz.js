@@ -11,7 +11,7 @@ import testtubePic8 from "../static/Testtube8.svg"
 import testtubePic10 from "../static/Testtube10.svg"
 import testtubePic11 from "../static/Testtube11.svg"
 
-
+import { fireConfetti } from "./confetti";
 
 import HighscoresComponent from "./HighscoresComponent";
 
@@ -62,6 +62,7 @@ const QuizComponent = ({ allElements }) => {
 
   const finishQuiz = () => {
     setDisplayHighscore(true);
+    fireConfetti();
   };
 
   const NextQuestion = () => {
@@ -114,9 +115,18 @@ const QuizComponent = ({ allElements }) => {
 
     <>
       <h2>The Element_Able Quiz!</h2>
-      <p>Rules: Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem impedit distinctio autem officiis voluptatem itaque. Officiis quo maiores deleniti voluptatibus aliquid, tempora cum porro error, suscipit illum sed aspernatur atque?</p>
-        <button onClick={startQuiz}>Get Started!!!</button>
-        <div id="quizContainer">
+      <div className="states-rules">
+        <h3>Rules</h3>
+        <p>We'll ask you ten questions about ten elements.  You just need to
+          pick the right standard state for the element.</p>
+        <p>When you answer multiple questions correctly in a row, we'll give
+          you bonus points!</p>
+        <p>Don't worry about wrong answers; you don't lose any points for them.</p>
+        <p>Be in the top 10 scores for this month to add yourself to the high scores leaderboard!</p>
+      </div>
+
+      <button onClick={startQuiz}>Get Started!!!</button>
+      <div id="quizContainer">
         {questionNumber === 0 ? null :
           <aside>
             <ShowImage />
@@ -130,8 +140,6 @@ const QuizComponent = ({ allElements }) => {
         {questionNumber === 0 ? null :
           <h4>Your Score : {score}</h4>}
       </div>
-
-
     </>
   );
 }
