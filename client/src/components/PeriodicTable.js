@@ -21,7 +21,7 @@ const PeriodicTable = ({elements}) => {
 
     return <>
         <div className="TableKey">
-            <h4>Key for table:</h4>
+            <h3>Key for table:</h3>
             <div>Unknown state =</div>
             <div className="key-item state-state-unknown"></div>
             <div>Solid non-metal =</div>

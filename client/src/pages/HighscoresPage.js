@@ -10,7 +10,7 @@ const HighscoresPage = () => {
     const handleMonthChange = (e) => setMonth(e.target.value);
     const handleGameChange = (e) => setGame(e.target.value);
 
-    return <main>
+    return <main id="high-score-page">
         <form onSubmit={e=>e.preventDefault()}>
             <div className="label-input">
                 <label htmlFor="highscores-game">Choose game: </label>
