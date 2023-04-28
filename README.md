@@ -8,6 +8,10 @@ Team 'Element_Ables' is
 [Jenna Howieson](https://github.com/Jennahowieson),
 [Benjamin Smith](https://github.com/bsmith).
 
+# Demo
+
+https://user-images.githubusercontent.com/114738026/235137535-80c6ea9e-ca52-4c69-ba7d-74f0b4886c74.mp4
+
 ## The Brief
 
 The BBC are looking to improve their online offering of educational content by developing some interactive browser applications that display information in a fun and interesting way. Your task is to make a Minimum Viable Product that enables the user to: explore the names of the elements of the periodic table and  learn the groups of the periodic table.  Our user is a 14-16 year-old National 5 student studying Chemistry.
