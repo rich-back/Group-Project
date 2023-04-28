@@ -8,7 +8,7 @@ Team 'Element_Ables' is
 [Jenna Howieson](https://github.com/Jennahowieson),
 [Benjamin Smith](https://github.com/bsmith).
 
-# Demo
+## Demo
 
 https://user-images.githubusercontent.com/114738026/235137535-80c6ea9e-ca52-4c69-ba7d-74f0b4886c74.mp4
 
